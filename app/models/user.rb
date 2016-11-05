@@ -6,5 +6,7 @@ class User < ApplicationRecord
   has_many :followings
   has_many :followers, :through => :followings
   has_many :lives
+  has_many :chats
+  has_many :questions
   #has_many :followings, :class_name => 'Following', :foreign_key => 'follower_id'
 end

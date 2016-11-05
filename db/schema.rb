@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161103144454) do
+ActiveRecord::Schema.define(version: 20161105075010) do
+
+  create_table "chats", force: :cascade do |t|
+    t.text     "content",    null: false
+    t.integer  "user_id"
+    t.integer  "live_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["live_id"], name: "index_chats_on_live_id"
+    t.index ["user_id"], name: "index_chats_on_user_id"
+  end
 
   create_table "followings", force: :cascade do |t|
     t.integer  "user_id"
@@ -25,6 +35,17 @@ ActiveRecord::Schema.define(version: 20161103144454) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.index ["user_id"], name: "index_lives_on_user_id"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.string   "subject",                null: false
+    t.integer  "user_id"
+    t.integer  "live_id"
+    t.integer  "approve",    default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["live_id"], name: "index_questions_on_live_id"
+    t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
