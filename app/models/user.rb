@@ -9,7 +9,8 @@ class User < ApplicationRecord
   has_many :followers, :through => :followings
   has_many :lives
   has_many :chats
-  has_many :questions
+  has_many :askings, :dependent => :destroy
+  has_many :questions, :through => :askings
   def self.from_omniauth(auth)
     # Case 1: Find existing user by facebook uid
     user = User.find_by_fb_uid( auth.uid )
