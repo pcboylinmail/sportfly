@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161105075010) do
+ActiveRecord::Schema.define(version: 20161105094637) do
 
   create_table "chats", force: :cascade do |t|
     t.text     "content",    null: false
@@ -59,13 +59,15 @@ ActiveRecord::Schema.define(version: 20161105075010) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "name",                                   null: false
     t.string   "channel_name"
     t.text     "description"
     t.boolean  "live_owner",             default: false
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
+    t.string   "fb_uid"
+    t.string   "fb_token"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["fb_uid"], name: "index_users_on_fb_uid"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

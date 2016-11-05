@@ -10,13 +10,13 @@
 
   <body>
     <div class="container">
-      <% if current_user %>
-        <%= link_to('登出', destroy_user_session_path, :method => :delete) %> |
-      <%= link_to('修改密碼', edit_registration_path(:user)) %>
-      <% else %>
-        <%= link_to('註冊', new_registration_path(:user)) %> |
-        <%= link_to('登入', new_session_path(:user)) %>
-      <% end %>
+      <%# if current_user %>
+        <%#= link_to('登出', destroy_user_session_path, :method => :delete) %>
+      <%#= link_to('修改密碼', edit_registration_path(:user)) %>
+      <%# else %>
+        <%#= link_to('註冊', new_registration_path(:user)) %>
+        <%#= link_to('登入', new_session_path(:user)) %>
+      <%# end %>
       <div class="col-sm-12">
         <%if flash[:notice].present?%>
           <div class="alert alert-success" role="alert">
@@ -31,6 +31,20 @@
           </div>
         <%end%>
       </div>
+      <span class="login">
+        <%# if current_user %>
+          <%#= link_to "登出", auth_signout_path, :method => :post %>
+          <%#= current_user.name %>
+          <%#= image_tag( current_user.fb_image ) %>
+        <%# else %>
+          <!-- <a href="/auth/facebook">Facebook 登入</a> -->
+        <%# end %>
+        <% if current_user %>
+          <%= link_to('登出', destroy_user_session_path, :method => :delete) %>
+        <% else %>
+            <%= link_to "登入 Facebook", user_facebook_omniauth_authorize_path %>
+        <% end %>
+      </span>
       <%= yield %>
     </div>
   </body>
