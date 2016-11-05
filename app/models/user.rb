@@ -17,7 +17,7 @@ class User < ApplicationRecord
       user.fb_token = auth.credentials.token
       #user.fb_raw_data = auth
       user.save!
-     return user
+      return user
     end
 
     # Case 2: Find existing user by email
