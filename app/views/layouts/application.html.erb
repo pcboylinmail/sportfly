@@ -1,14 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="">
   <head>
-    <title>Sportfly</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag '/css/layout', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
-
   <body>
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">選單切換</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="navbar_logo">
+          <a class="navbar-brand" href="#">
+          <%= image_tag "/css/img/logo.png" %>
+          </a>
+        </div>
+      </div>
+    
+      <!-- 手機隱藏選單區 -->
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <!-- 左選單 -->
+        <ul class="nav navbar-nav">
+          <!-- <li><a href="#"></a></li> -->
+        </ul>
+        
+        <!-- 右選單 -->
+        <div>
+
+        <ul id="nav_words" class="nav navbar-nav navbar-right">
+
+        <!-- 搜尋表單 -->
+          <li>
+            <form class="navbar-form" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="請輸入關鍵字">
+              </div>
+              <button type="submit" class="btn btn-default">搜尋</button>
+            </form>
+          </li>
+          <li><a href="#">PCboy 您好</a></li>
+            <% if current_user %>
+              <li><a href="<%=destroy_user_session_path%>",data-method ="delete">登出</a></li>
+            <% else %>
+            <li><a href="<%=user_facebook_omniauth_authorize_path%>">Facebook登入</a></li>
+            <% end %>
+          <!-- <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">繁體中文 <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">繁體中文</a></li>
+              <li><a href="#">English</a></li>
+              <li><a href="#">日本語</a></li>
+            </ul>
+          </li> -->
+        </ul>
+      </div>
+      <!-- 手機隱藏選單區結束 -->
+    </nav>
     <div class="container">
       <%# if current_user %>
         <%#= link_to('登出', destroy_user_session_path, :method => :delete) %>
@@ -31,21 +94,25 @@
           </div>
         <%end%>
       </div>
-      <span class="login">
+      <!-- <span class="login">
         <%# if current_user %>
           <%#= link_to "登出", auth_signout_path, :method => :post %>
           <%#= current_user.name %>
           <%#= image_tag( current_user.fb_image ) %>
         <%# else %>
-          <!-- <a href="/auth/facebook">Facebook 登入</a> -->
+          <a href="/auth/facebook">Facebook 登入</a>
         <%# end %>
         <% if current_user %>
           <%= link_to('登出', destroy_user_session_path, :method => :delete) %>
         <% else %>
             <%= link_to "登入 Facebook", user_facebook_omniauth_authorize_path %>
         <% end %>
-      </span>
+      </span> -->
       <%= yield %>
     </div>
+    
+    
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   </body>
 </html>

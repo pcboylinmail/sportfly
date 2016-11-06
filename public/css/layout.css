@@ -1,0 +1,31 @@
+html {
+    width: 100%;
+}
+
+body {
+    background-color: #262626;
+}
+
+body .navbar {
+    position: relative;
+    background-color: #313131;
+    height: 50px;
+    border: 0;
+    border-radius: 0;
+    color: #FA6503
+}
+
+#nav_words a {
+	color: #FA6503;
+}
+
+body .navbar_logo {
+    position: relative;
+    top: -7px;
+    width: 200px;
+    height: auto;
+}
+
+body .navbar_logo img {
+    width: 70%;
+}
