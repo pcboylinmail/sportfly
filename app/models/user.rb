@@ -45,4 +45,14 @@ class User < ApplicationRecord
     user.save!
     return user
   end
+
+    def return_json
+    return {
+      :email => self.email,
+      :fb_token => self.fb_token,
+      :fb_name => self.fb_name,
+      :gender => self.gender,
+
+    }
+  end
 end
