@@ -9,6 +9,16 @@ class Api::LivesController < Api::ApiController
     }
   end
 
+  def show
+    @user = User.find(params[:user_id])
+    @live = @user.lives.find(params[:id])
+
+    # @live = Live.find(params[:id])
+    # @user = @Live.user
+    # @user = User.find(@live)
+    @lives = @user.lives
+  end
+
   def create
     @live = Live.new(:name => params[:name])
     @live.user = User.first
