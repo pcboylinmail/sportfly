@@ -7,12 +7,12 @@ class User < ApplicationRecord
 
   has_many :followings
   has_many :followers, :through => :followings
-  has_many :live_shows, :class_name => "Live" , :foreign_key => "user_id"
+  has_many :live_shows
   has_many :chats
   has_many :askings, :dependent => :destroy
   has_many :questions, :through => :askings
   has_many :watchings
-  has_many :watch_lives, :through => :watchings, :source => :live
+  has_many :watch_lives, :through => :watchings, :source => :live_show
 
   def self.from_omniauth(auth)
     # Case 1: Find existing user by facebook uid

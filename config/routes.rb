@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   #devise_for :users
-  root :to => "lives#index"
+  root :to => "live_shows#index"
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   namespace :api do
     resources :users do
