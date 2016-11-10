@@ -1,0 +1,7 @@
+<% @live_shows.each do |l| %>
+  <%= image_tag l.user.fb_image %>
+  <%= l.user.fb_name %>
+  <%= l.name %>
+  <%= l.user.description %>
+  <%= link_to "進入直播室", user_live_show_path(l.user,l) %>
+<% end %>

@@ -1,0 +1,10 @@
+<%= image_tag @user.fb_image %>
+<%= @user.fb_name %>的頻道
+<%= @live_show.name %>
+<%= @user.description %>
+<%= @user.fb_name %>的影片
+
+<% @live_shows.each do |l| %>
+  <%= l.name %>
+  <%= link_to "進入直播室", user_live_show_path(l.user,l) %>
+<% end %>

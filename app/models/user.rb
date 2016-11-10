@@ -7,10 +7,13 @@ class User < ApplicationRecord
 
   has_many :followings
   has_many :followers, :through => :followings
-  has_many :lives
+  has_many :live_shows
   has_many :chats
   has_many :askings, :dependent => :destroy
   has_many :questions, :through => :askings
+  has_many :watchings
+  has_many :watch_lives, :through => :watchings, :source => :live_show
+
   def self.from_omniauth(auth)
     # Case 1: Find existing user by facebook uid
     user = User.find_by_fb_uid( auth.uid )
@@ -44,5 +47,15 @@ class User < ApplicationRecord
     #user.fb_raw_data = auth
     user.save!
     return user
+  end
+
+    def return_json
+    return {
+      :email => self.email,
+      :fb_token => self.fb_token,
+      :fb_name => self.fb_name,
+      :gender => self.gender,
+
+    }
   end
 end
