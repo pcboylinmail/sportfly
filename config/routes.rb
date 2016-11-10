@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   #devise_for :users
   root :to => "live_shows#index"
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  namespace :api do
+  namespace :api, :defaults => { :format => :json } do
     resources :users do
       resources :live_shows
     end

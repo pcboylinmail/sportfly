@@ -4,8 +4,8 @@ class LiveShowsController < ApplicationController
   end
 
   def show
-    @live_show = LiveShow.find(params[:id])
-    @user = @live_show.user
+    @user = User.find(params[:user_id])
+    @live_show = @user.live_shows.find(params[:id])
     @live_shows = @user.live_shows
   end
 end

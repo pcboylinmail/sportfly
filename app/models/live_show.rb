@@ -6,8 +6,9 @@ class LiveShow < ApplicationRecord
   has_many :watchers, :through => :watchings, :source => :user
 
   def return_json
-    return {
-      :name => self.name
+    {
+      :live_show => self,
+      :user => self.user
     }
   end
 end

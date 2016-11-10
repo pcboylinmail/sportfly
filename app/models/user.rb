@@ -55,7 +55,6 @@ class User < ApplicationRecord
       :fb_token => self.fb_token,
       :fb_name => self.fb_name,
       :gender => self.gender,
-
     }
   end
 end
