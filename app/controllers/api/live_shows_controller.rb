@@ -1,7 +1,7 @@
 class Api::LiveShowsController < Api::ApiController
-
+  before_action :authenticate_user!
   def index
-    @live_shows =LiveShow.includes(:user)
+    @live_shows = LiveShow.includes(:user)
     render :json => {
       :live_shows => @live_shows.map{|i|i.return_json}
     }

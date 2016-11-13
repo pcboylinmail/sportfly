@@ -3,6 +3,15 @@ class Api::ApiController < ActionController::Base
   #因為不是繼承application_controller.rb，而是繼承他的父層ActionController
   #所以可以不用skip_before_action
   before_action :enable_cors
+  before_action :authenticate_user_from_token!
+
+  def authenticate_user_from_token!
+    if params[:auth_token].present?
+      user = User.find_by_authentication_token( params[:auth_token] )
+      # Devise: 設定 current_user
+      sign_in(user, store: false) if user
+    end
+  end
 
   private
 

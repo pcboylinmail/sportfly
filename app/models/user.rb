@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  before_create :generate_authentication_token
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
@@ -9,10 +11,15 @@ class User < ApplicationRecord
   has_many :followers, :through => :followings
   has_many :live_shows
   has_many :chats
+  has_many :questions
   has_many :askings, :dependent => :destroy
-  has_many :questions, :through => :askings
+  has_many :wonder_questions, :through => :askings, :source => :question
   has_many :watchings
   has_many :watch_lives, :through => :watchings, :source => :live_show
+
+  def generate_authentication_token
+     self.authentication_token = Devise.friendly_token
+  end
 
   def self.from_omniauth(auth)
     # Case 1: Find existing user by facebook uid
@@ -49,7 +56,7 @@ class User < ApplicationRecord
     return user
   end
 
-    def return_json
+  def return_json
     return {
       :email => self.email,
       :fb_token => self.fb_token,
