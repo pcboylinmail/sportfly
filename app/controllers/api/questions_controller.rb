@@ -10,7 +10,7 @@ class Api::QuestionsController < Api::ApiController
   end
 
   def create
-    current_user = User.find_by_fb_token(params[:fb_token])
+    #current_user = User.find_by_fb_token(params[:fb_token])
     @question = Question.new(:user_id => current_user.id,
               :live_show_id => params[:live_show_id],
               :subject => params[:subject])
