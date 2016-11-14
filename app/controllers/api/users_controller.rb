@@ -7,4 +7,55 @@ class Api::UsersController < ApplicationController
     }
   end
 
+  def show
+    @user = User.find(params[:id])
+    render :json => {
+      :user => @user.return_json,
+    }
+  end
+
+  def create
+    @user = User.new(
+                        email: params[:email],
+                        channel_name: params[:channel_name],
+                        description: params[:description],
+                        live_owner: params[:live_owner],
+                        fb_uid: params[:fb_uid],
+                        fb_token: params[:fb_token],
+                        fb_name: params[:fb_name],
+                        fb_image: params[:fb_image],
+                        fb_link: params[:fb_link],
+                        gender: params[:gender],
+                        authentication_token: params[:authentication_token])
+    if @user.save
+      render :json => {
+        :status => 200,
+        :message => "create succeed",
+        :user => @user
+      }
+    end
+  end
+
+  def update
+    @user = User.find(params[:id])
+    @user.update(
+                  email: params[:email],
+                  channel_name: params[:channel_name],
+                  description: params[:description],
+                  live_owner: params[:live_owner],
+                  fb_uid: params[:fb_uid],
+                  fb_token: params[:fb_token],
+                  fb_name: params[:fb_name],
+                  fb_image: params[:fb_image],
+                  fb_link: params[:fb_link],
+                  gender: params[:gender],
+                  authentication_token: params[:authentication_token])
+    if @user.save
+      render :json => {
+        :status => 200,
+        :message => "update succeed",
+        :user => @user
+      }
+    end
+  end
 end

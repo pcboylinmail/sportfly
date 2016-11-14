@@ -8,14 +8,11 @@ class Api::LiveShowsController < Api::ApiController
   end
 
   def show
-    @user = User.find(params[:user_id])
-    @live_show = @user.live_shows.find(params[:id])
-    @live_shows = @user.live_shows
+    #@user = User.find(params[:id])
+    @live_show = LiveShow.find(params[:id])
+    #@live_shows = @user.live_shows
     render :json => {
-      :live_show => @live_show,
-      :live_show_user => @live_show.user,
-      :live_show_questions => @live_show.questions.map{|i|i.return_json},
-      :live_show_chats => @live_show.chats.map{|i|i.return_json}
+      :live_show => @live_show.return_json,
     }
   end
 
@@ -28,6 +25,33 @@ class Api::LiveShowsController < Api::ApiController
         :status => 200,
         :message => "create succeed",
         :live_show => @live_show
+      }
+    end
+  end
+
+  def update
+    @live_show = LiveShow.find(params[:id])
+    @live_show.update(name:params[:name])
+    if @live_show.save
+      render :json => {
+        :status => 200,
+        :message => "update succeed",
+        :live_show => @live_show
+      }
+    end
+  end
+
+  def destroy
+    @live_show = LiveShow.find(params[:id])
+    if @live_show.destroy
+      render :json => {
+        :status => 200,
+        :message => "destroy succeed"
+      }
+    else
+      render :json => {
+        :status => 401,
+        :message => "destroy failed"
       }
     end
   end

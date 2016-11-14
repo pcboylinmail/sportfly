@@ -58,10 +58,10 @@ class User < ApplicationRecord
 
   def return_json
     return {
-      :email => self.email,
-      :fb_token => self.fb_token,
-      :fb_name => self.fb_name,
-      :gender => self.gender
+      :user => self,
+      :user_live_shows => self.live_shows,
+      #:user_followers => self.followers,
+      :user_followings => Following.where(follower_id: self.id)
     }
   end
 end

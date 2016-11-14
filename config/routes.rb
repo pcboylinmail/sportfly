@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   root :to => "live_shows#index"
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   namespace :api, :defaults => { :format => :json } do
-    resources :users do
-      resources :live_shows
-    end
+    resources :users
+    resources :live_shows do
+      resources :chats
+      resources :questions
+  end
   end
   resources :users do
     resources :live_shows

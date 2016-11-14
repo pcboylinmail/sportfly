@@ -8,8 +8,10 @@ class LiveShow < ApplicationRecord
   def return_json
     {
       :live_show => self,
-      :user => self.user,
-      :viewer => self.viewer
+      :live_show_user => self.user,
+      :live_show_chats => self.chats,
+      :live_show_questions => self.questions,
+      :live_show_watchers => self.watchers
     }
   end
 end
