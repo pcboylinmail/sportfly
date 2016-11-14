@@ -5,11 +5,11 @@ Rails.application.routes.draw do
   namespace :api, :defaults => { :format => :json } do
     resources :users
     resources :live_shows do
+      resources :followings
       resources :chats
       resources :questions do
         resources :askings
       end
-      resources :followings
     end
   end
   resources :users do

@@ -1,31 +1,31 @@
-class Api::QuestionsController < Api::ApiController
+class Api::ChatsController < Api::ApiController
   before_action :authenticate_user!
   def index
     @live_show = LiveShow.find(params[:live_show_id])
-    @questions = @live_show.questions
+    @chats = @live_show.chats
     render :json => {
       :live_show => @live_show.return_json,
-      :questions => @questions.map{|i|i.return_json}
+      :chats => @chats.map{|i|i.return_json}
     }
   end
 
   def create
-    @question = Question.new(:user_id => current_user.id,
+    @chat = Chat.new(:user_id => current_user.id,
               :live_show_id => params[:live_show_id],
-              :subject => params[:subject])
-    if @question.save
+              :content => params[:content])
+    if @chat.save
       render :json => {
         :status => 200,
         :message => "create succeed",
-        :chat => @question.return_json
+        :chat => @chat.return_json
       }
     end
   end
 
   def destroy
     @live_show = LiveShow.find(params[:live_show_id])
-    @question = @live_show.questions.find(params[:id])
-    if @question.destroy
+    @chat = @live_show.chats.find(params[:id])
+    if @chat.destroy
         render :json => {
         :status => 200,
         :message => "destroy succeed"

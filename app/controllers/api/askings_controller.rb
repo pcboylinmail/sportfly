@@ -1,5 +1,5 @@
 class Api::AskingsController < Api::ApiController
-  #before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def create
     @live_show = LiveShow.find(params[:live_show_id])
