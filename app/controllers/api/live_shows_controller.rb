@@ -19,7 +19,8 @@ class Api::LiveShowsController < Api::ApiController
   def create
     #@user = current_user
     #@live_show.user_id = @user.id
-    @live_show = LiveShow.new(name:params[:name], user_id:params[:user_id])
+    #不確定current_user是否能這樣用
+    @live_show = LiveShow.new(name:params[:name], user_id: current_user.id)
     if @live_show.save
       render :json => {
         :status => 200,

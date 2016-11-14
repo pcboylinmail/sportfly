@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :live_shows do
       resources :chats
       resources :questions
+      resources :followings
   end
   end
   resources :users do
