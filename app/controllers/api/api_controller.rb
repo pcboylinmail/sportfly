@@ -5,6 +5,8 @@ class Api::ApiController < ActionController::Base
   before_action :enable_cors
   before_action :authenticate_user_from_token!
 
+  private
+
   def authenticate_user_from_token!
     if params[:auth_token].present?
       user = User.find_by_authentication_token( params[:auth_token] )
@@ -12,8 +14,6 @@ class Api::ApiController < ActionController::Base
       sign_in(user, store: false) if user
     end
   end
-
-  private
 
   def enable_cors
     response.headers['Access-Control-Allow-Origin'] = '*'
