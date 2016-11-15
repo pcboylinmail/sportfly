@@ -1,0 +1,384 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
+.navbar-custom .navbar-brand {
+    color: #ff6500;
+}
+
+.navbar-custom .navbar-brand.active,
+.navbar-custom .navbar-brand:active,
+.navbar-custom .navbar-brand:focus,
+.navbar-custom .navbar-brand:hover {
+    color: #FED136;
+}
+
+.logo_index {
+    position: absolute;
+    top: -40px;
+    width: 250px;
+    height: 210px;
+}
+
+.logo_index img {
+    width: 70%;
+    height: 70%;
+}
+
+header .intro-text {
+    position: absolute;
+    padding-top: 300px;
+    padding-bottom: 200px;
+    top: 0;
+    bottom: 0;
+    right: -100%;
+    left: -100%;
+}
+
+header .chinese {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-style: italic;
+    font-weight: 700px;
+    font-size: 50px;
+    line-height: 50px;
+    margin-bottom: 25px;
+}
+
+header .intro-text .intro-lead-in {
+    font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-style: italic;
+    font-size: 22px;
+    line-height: 22px;
+    margin-bottom: 25px;
+}
+
+header .intro-text .intro-heading {
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: 700px;
+    font-size: 50px;
+    line-height: 50px;
+    margin-bottom: 25px;
+}
+
+@media (min-width: 768px) {
+    header .intro-text {
+        padding-top: 300px;
+        padding-bottom: 200px;
+    }
+    header .intro-text .intro-lead-in {
+        font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-style: italic;
+        font-size: 40px;
+        line-height: 40px;
+        margin-bottom: 25px;
+    }
+    header .intro-text .intro-heading {
+        font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 75px;
+        line-height: 75px;
+        margin-bottom: 50px;
+    }
+    .video-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        background: rgba(0%, 0%, 0%, 0.3);
+        text-align: center;
+        overflow: hidden;
+    }
+
+    @media (max-width: 479px) {
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+    }
+}
+
+section {
+    padding: 100px 0;
+}
+
+@media (min-width: 768px) {
+    section {
+        padding: 150px 0;
+    }
+}
+
+.services {
+    background-color: #F5F5F5;
+}
+
+.services .row {
+    height: 450px;
+    padding-top: 25px;
+}
+
+.services .text-muted {
+    font-size: 30px;
+}
+
+.services .text-muted_1 {
+    font-size: 23px;
+}
+
+.services .service-heading {
+    font-size: 40px;
+}
+
+.text-primary {
+    color: #FF6500;
+}
+
+.row_2 {
+    margin: auto;
+}
+
+.p2 {
+    width: auto;
+    height: auto;
+}
+
+.p2 img {
+    width: 100%;
+}
+
+.p_word {
+    position: absolute;
+    text-align: center;
+    padding-top: 50px;
+    left: -100px;
+    right: -100px;
+}
+
+.p_word h2 {
+    color: white;
+    font-size: 50px;
+}
+
+.p_word p {
+    color: white;
+    font-size: 40px;
+}
+
+.newsletter h3 {
+    text-align: center;
+}
+
+fieldset .form-group {
+    width: 500px;
+    margin: auto;
+}
+
+ul.social-buttons li a {
+    display: block;
+    background-color: #4862A3;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    font-size: 20px;
+    line-height: 40px;
+    color: white;
+    outline: none;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+section#contact {
+    background-image: url('./img/e_2.jpg');
+}
+
+section#contact .container {
+    padding-left: 400px;
+    padding-top: 100px;
+}
+
+.p2_1_sum {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.p2_11 {
+    text-align: center;
+    width: auto;
+    height: auto;
+}
+
+.p2_12 {
+    text-align: center;
+    width: auto;
+    height: auto;
+}
+
+.p2_13 {
+    text-align: center;
+    width: auto;
+    height: auto;
+}
+
+.p2_w {
+    height: auto;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.p2_pic {
+    width: 300px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.p2_pic img {
+    width: 100%;
+    height: 100%;
+}
+
+.services_2 {
+    margin-top: 5px;
+    background-color: #F5F5F5;
+}
+
+.services_2 .row {
+    height: 850px;
+    padding-top: 25px;
+}
+
+.services_2 .text-muted {
+    font-size: 30px;
+}
+
+.services_2 .text-muted_1 {
+    font-size: 23px;
+}
+
+.services_2 .service-heading {
+    font-size: 40px;
+}
+
+.s2_pic_sum {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    border: 2px solid transparent;
+    width: 400px;
+    height: 650px;
+    margin-top: 50px;
+    margin-left: 100px;
+}
+
+.s2_pic {
+    display: inline-block;
+    width: 400px;
+    height: 650px;
+}
+
+.s2_pic img {
+    width: 100%;
+    height: 100%;
+}
+
+.s2_pic_talk_img {
+    position: absolute;
+    display: inline-block;
+    text-align: center;
+    width: 400px;
+    height: 300px;
+    top: 350px;
+    left: -2px;
+}
+
+.s2_pic_talk_img img {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.s2_pic_mn_img {
+    position: absolute;
+    display: inline-block;
+    text-align: center;
+    width: 400px;
+    height: 40px;
+    top: 150px;
+    left: -2px;
+}
+
+.s2_pic_mn_img img {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.s2_pic_qt_img {
+    position: absolute;
+    display: inline-block;
+    text-align: center;
+    width: 400px;
+    height: 300px;
+    top: 350px;
+    left: -2px;
+}
+
+.s2_pic_qt_img img {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.services_3 {
+    background-color: #262626;
+}
+
+.services_3 .row {
+    height: 700px;
+    padding-top: 25px;
+}
+
+.services_3 .text-muted {
+    font-size: 30px;
+}
+
+.services_3 .text-muted_1 {
+    font-size: 23px;
+}
+
+.services_3 .section-heading {
+    color: white;
+    font-size: 50px;
+}
+
+.services_3 h1 {
+    color: white;
+    text-align: left;
+    font-size: 30px;
+    margin-top: 30px;
+}
+
+.gym {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    top: 130px;
+    width: auto;
+    height: auto;
+}
+
+.gym img {
+    width: 100%;
+    height: 100%;
+}
+.gym_w{
+    position: relative;
+    margin-top: 80px;
+}
+.gym_w h1{
+    text-align: justify;
+}
+
