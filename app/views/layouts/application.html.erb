@@ -55,12 +55,14 @@
               <button type="submit" class="btn btn-default">搜尋</button>
             </form>
           </li>
-          <li><a href="#">PCboy 您好</a></li>
-            <% if current_user %>
-              <li><a href="<%=destroy_user_session_path%>" data-method="delete">登出</a></li>
-            <% else %>
-            <li><a href="<%=user_facebook_omniauth_authorize_path%>">Facebook登入</a></li>
-            <% end %>
+
+
+        <% if current_user %>
+          <li><%= current_user.fb_name %><%= link_to('登出', destroy_user_session_path, :method => :delete) %></li>
+        <% else %>
+            <li><%= link_to "登入 Facebook", user_facebook_omniauth_authorize_path %></li>
+        <% end %>
+
           <!-- <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">繁體中文 <b class="caret"></b></a>
             <ul class="dropdown-menu">
