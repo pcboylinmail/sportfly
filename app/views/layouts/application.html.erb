@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sportfly</title>
     <link rel="shortcut icon" href="/css/img/logo.png">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag '/css/layout', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
+
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -33,14 +33,14 @@
           </a>
         </div>
       </div>
-    
+
       <!-- 手機隱藏選單區 -->
       <div class="collapse navbar-collapse navbar-ex1-collapse">
         <!-- 左選單 -->
         <ul class="nav navbar-nav">
           <!-- <li><a href="#"></a></li> -->
         </ul>
-        
+
         <!-- 右選單 -->
         <div>
 
@@ -57,7 +57,7 @@
           </li>
           <li><a href="#">PCboy 您好</a></li>
             <% if current_user %>
-              <li><a href="<%=destroy_user_session_path%>" data-method ="delete">登出</a></li>
+              <li><a href="<%=destroy_user_session_path%>" data-method="delete">登出</a></li>
             <% else %>
             <li><a href="<%=user_facebook_omniauth_authorize_path%>">Facebook登入</a></li>
             <% end %>
@@ -103,21 +103,14 @@
         <%# else %>
           <a href="/auth/facebook">Facebook 登入</a>
         <%# end %>
-        <% if current_user %>
-          <%= link_to('登出', destroy_user_session_path, :method => :delete) %>
-        <% else %>
-            <%= link_to "登入 Facebook", user_facebook_omniauth_authorize_path %>
-        <% end %>
+        <%# if current_user %>
+          <%#= link_to('登出', destroy_user_session_path, :method => :delete) %>
+        <%# else %>
+            <%#= link_to "登入 Facebook", user_facebook_omniauth_authorize_path %>
+        <%# end %>
       </span> -->
       <%= yield %>
     </div>
-    
-    
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
 
-    </script>
-    
   </body>
 </html>
