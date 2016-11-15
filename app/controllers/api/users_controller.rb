@@ -33,6 +33,11 @@ class Api::UsersController < ApplicationController
         :message => "create succeed",
         :user => @user
       }
+    else
+      render :json => {
+             :status => 401,
+             :message => "create failed"
+      }
     end
   end
 
@@ -55,6 +60,11 @@ class Api::UsersController < ApplicationController
         :status => 200,
         :message => "update succeed",
         :user => @user
+      }
+    else
+      render :json => {
+             :status => 401,
+             :message => "update failed"
       }
     end
   end

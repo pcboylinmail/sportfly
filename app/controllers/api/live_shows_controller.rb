@@ -27,6 +27,11 @@ class Api::LiveShowsController < Api::ApiController
         :message => "create succeed",
         :live_show => @live_show
       }
+    else
+      render :json => {
+             :status => 401,
+             :message => "create failed"
+      }
     end
   end
 
@@ -38,6 +43,11 @@ class Api::LiveShowsController < Api::ApiController
         :status => 200,
         :message => "update succeed",
         :live_show => @live_show
+      }
+    else
+      render :json => {
+             :status => 401,
+             :message => "update failed"
       }
     end
   end

@@ -14,6 +14,11 @@ class Api::AskingsController < Api::ApiController
           :asking => @asking,
           :wonder_count => @wonder_count
         }
+    else
+      render :json => {
+             :status => 401,
+             :message => "create failed"
+      }
     end
   end
 

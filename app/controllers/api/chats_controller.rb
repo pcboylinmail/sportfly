@@ -19,6 +19,11 @@ class Api::ChatsController < Api::ApiController
         :message => "create succeed",
         :chat => @chat.return_json
       }
+    else
+      render :json => {
+             :status => 401,
+             :message => "create failed"
+      }
     end
   end
 

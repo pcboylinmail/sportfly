@@ -11,6 +11,11 @@ class Api::FollowingsController < Api::ApiController
           :message => "create succeed",
           :following => @following
         }
+    else
+      render :json => {
+             :status => 401,
+             :message => "create failed"
+      }
     end
   end
 
