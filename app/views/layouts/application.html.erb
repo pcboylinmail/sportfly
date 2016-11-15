@@ -57,7 +57,7 @@
           </li>
           <li><a href="#">PCboy 您好</a></li>
             <% if current_user %>
-              <li><a href="<%=destroy_user_session_path%>",data-method ="delete">登出</a></li>
+              <li><a href="<%=destroy_user_session_path%>" data-method ="delete">登出</a></li>
             <% else %>
             <li><a href="<%=user_facebook_omniauth_authorize_path%>">Facebook登入</a></li>
             <% end %>

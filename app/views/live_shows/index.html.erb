@@ -1,7 +1,148 @@
-<% @live_shows.each do |l| %>
-  <%= image_tag l.user.fb_image %>
-  <%= l.user.fb_name %>
-  <%= l.name %>
-  <%= l.user.description %>
-  <%= link_to "進入直播室", user_live_show_path(l.user,l) %>
-<% end %>
+<div class="index_navtab">
+	<ul class="nav nav-tabs">
+		<li><a data-toggle="tab" href="#home">現在直播</a></li>
+		<li><a data-toggle="tab" href="#menu1">熱門直播</a></li>
+	</ul>
+</div>
+<div class="tab-content">
+	<div id="home" class="tab-pane fade in active">
+	<br>
+		<div class="channel_row">
+		    <div class="col-lg-12">
+		    <%raise%>
+		    <% @live_shows.each do |l| %>
+		    	<a href="<%= user_live_show_path(l.user,l) %>">
+					<div class="channel_item">
+						<div class="channel_pic">
+							<img src="http://s2.post01.com/uploads/c4/b/119050/14689381446338.jpg">
+						</div>
+						<div class="channel_about">
+							<div class="channel_about_top">
+								<div class="channel_owner">
+									<span class="glyphicon glyphicon-user" aria-hidden="true"> aaaa</span>
+								</div>
+								<div class="channel_count">
+									<span class="glyphicon glyphicon-eye-open" aria-hidden="true"> 5人觀看</span>
+								</div>
+							</div>
+							<div class="channel_about_bottom">
+								<div class="channel_name">台灣分隊長</div>
+								<div class="channel_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum cumque, asperiores libero sint iste aliquam. Accusantium minima, aliquam excepturi fugit dignissimos quasi inventore beatae esse, commodi repellendus maxime recusandae ipsam.
+								</div>
+							</div>
+						</div>
+					</div>
+				</a>
+			<% end %>
+				<div class="channel_item">
+					<div class="channel_pic">
+						<img src="http://img.gq.com.tw/userfiles/sm/sm645_images_A1/21012/2015020266774337.jpg">
+					</div>
+					<div class="channel_about">
+						<div class="channel_about_top">
+							<div class="channel_owner">
+								<span class="glyphicon glyphicon-user" aria-hidden="true"> aaaa</span>
+							</div>
+							<div class="channel_count">
+								<span class="glyphicon glyphicon-eye-open" aria-hidden="true"> 5人觀看</span>
+							</div>
+						</div>
+						<div class="channel_about_bottom">
+							<div class="channel_name">台灣分隊長</div>
+							<div class="channel_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum cumque, asperiores libero sint iste aliquam. Accusantium minima, aliquam excepturi fugit dignissimos quasi inventore beatae esse, commodi repellendus maxime recusandae ipsam.
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="channel_item">
+					<div class="channel_pic">
+						<img src="http://www.daliulian.net/imgs/image/10/1093836.jpg">
+					</div>
+					<div class="channel_about">
+						<div class="channel_about_top">
+							<div class="channel_owner">
+								<span class="glyphicon glyphicon-user" aria-hidden="true"> aaaa</span>
+							</div>
+							<div class="channel_count">
+								<span class="glyphicon glyphicon-eye-open" aria-hidden="true"> 5人觀看</span>
+							</div>
+						</div>
+						<div class="channel_about_bottom">
+							<div class="channel_name">台灣分隊長</div>
+							<div class="channel_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum cumque, asperiores libero sint iste aliquam. Accusantium minima, aliquam excepturi fugit dignissimos quasi inventore beatae esse, commodi repellendus maxime recusandae ipsam.
+							</div>
+						</div>
+					</div>
+				</div>
+		    </div>
+		</div>
+	</div>
+	<div id="menu1" class="tab-pane fade">
+	<br>
+	  <div class="channel_row">
+		    <div class="col-lg-12">
+				<div class="channel_item">
+					<div class="channel_pic">
+						<img src="http://s2.post01.com/uploads/c4/b/119050/14689381446338.jpg">
+					</div>
+					<div class="channel_about">
+						<div class="channel_about_top">
+							<div class="channel_owner">
+								<span class="glyphicon glyphicon-user" aria-hidden="true"> aaaa</span>
+							</div>
+							<div class="channel_count">
+								<span class="glyphicon glyphicon-eye-open" aria-hidden="true"> 5人觀看</span>
+							</div>
+						</div>
+						<div class="channel_about_bottom">
+							<div class="channel_name">台灣分隊長</div>
+							<div class="channel_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum cumque, asperiores libero sint iste aliquam. Accusantium minima, aliquam excepturi fugit dignissimos quasi inventore beatae esse, commodi repellendus maxime recusandae ipsam.
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="channel_item">
+					<div class="channel_pic">
+						<img src="http://img.gq.com.tw/userfiles/sm/sm645_images_A1/21012/2015020266774337.jpg">
+					</div>
+					<div class="channel_about">
+						<div class="channel_about_top">
+							<div class="channel_owner">
+								<span class="glyphicon glyphicon-user" aria-hidden="true"> aaaa</span>
+							</div>
+							<div class="channel_count">
+								<span class="glyphicon glyphicon-eye-open" aria-hidden="true"> 5人觀看</span>
+							</div>
+						</div>
+						<div class="channel_about_bottom">
+							<div class="channel_name">台灣分隊長</div>
+							<div class="channel_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum cumque, asperiores libero sint iste aliquam. Accusantium minima, aliquam excepturi fugit dignissimos quasi inventore beatae esse, commodi repellendus maxime recusandae ipsam.
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="channel_item">
+					<div class="channel_pic">
+						<img src="http://www.daliulian.net/imgs/image/10/1093836.jpg">
+					</div>
+					<div class="channel_about">
+						<div class="channel_about_top">
+							<div class="channel_owner">
+								<span class="glyphicon glyphicon-user" aria-hidden="true"> aaaa</span>
+							</div>
+							<div class="channel_count">
+								<span class="glyphicon glyphicon-eye-open" aria-hidden="true"> 5人觀看</span>
+							</div>
+						</div>
+						<div class="channel_about_bottom">
+							<div class="channel_name">台灣分隊長</div>
+							<div class="channel_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum cumque, asperiores libero sint iste aliquam. Accusantium minima, aliquam excepturi fugit dignissimos quasi inventore beatae esse, commodi repellendus maxime recusandae ipsam.
+							</div>
+						</div>
+					</div>
+				</div>
+		    </div>
+		</div>
+	</div>
+</div>
+

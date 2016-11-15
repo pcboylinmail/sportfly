@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta property="og:title" content="Sportfly 為運動愛好者而生的直播平台" />
+    <meta property="og:type" content="Live,Video" />
+    <meta property="og:url" content="http://www.sportfly.live" />
+    <meta property="og:image" content="http://www.sportfly.live/img/fb_pic.png" />
+    <meta property="og:description" content="體驗運動直播互動的樂趣!" />
+    <title>Sportfly - Live & Transform!</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <!-- Theme CSS -->
+    <link href="css/agency.min.css" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/earlyaccess/notosanstc.css" rel="stylesheet">
+    <link href="css/other.css" rel="stylesheet">
+    <link href="js/mobile.js" rel="javascript" type="text/javascript">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+    function mymedia() { // 自訂函數定義裝置解析度取得與判斷
+        var myscreen = screen.availWidth; // 取得可瀏覽頁面寬度記錄在變數 myscreen 中
+        // 如果頁面寬度小於 321，轉址到手機版頁面並停止後續程式
+        if (myscreen < 321) {
+            document.location.href = "sportfly/gm_index.html";
+            return;
+        }
+        // 如果頁面寬度小於 769，轉址到平板電腦版頁面並停止後續程式
+        if (myscreen < 769) {
+            document.location.href = "sportfly/gm_index.html";
+            return;
+        }
+    }
+    mymedia(); // 呼叫執行自訂函數
+    </script>
+    <!-- Google Tag Manager -->
+    <script>
+    (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start': new Date().getTime(),
+            event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-P3NHCF');
+    </script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<body id="page-top" class="index">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P3NHCF" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <div class="logo_index">
+                    <img src="sportfly/img/logo.png" alt="">
+                </div>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="chinese page-scroll" href="#services">平台特色</a>
+                    </li>
+                    <li>
+                        <a class="chinese page-scroll" href="#services_3">合作夥伴</a>
+                    </li>
+                    <li>
+                        <a class="chinese page-scroll" href="#contact">LET'S LIVE</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div class="video-container">
+        <video autoplay="" loop="" muted="">
+            <source src="sportfly/Sportfly.mp4" type="video/mp4" frameborder="0" allowfullscreen>
+        </video>
+    </div>
+    <header>
+        <div class="container">
+            <div class="intro-text">
+                <div class="chinese">為運動愛好者而生的直播平台!</div>
+                <div class="intro-heading">Live & Transform!</div>
+                <a href="#services" class="page-scroll btn btn-xl">了解更多</a>
+            </div>
+        </div>
+    </header>
+    <!--    <div class="vidbg-container" style="position: absolute; z-index: -1; top: 0px; left: 0px; bottom: 0px; right: 0px; overflow: hidden; background-image: none; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat; ">
+        <video autoplay="" loop="" muted="" style="margin: auto; position: absolute; z-index: -1; top: 50%; left: 50%; transform: translate(-50%, -50%); visibility: visible; opacity: 1; width: 560px; height: 315px;">
+            <source src="https://www.alphacamp.co/wp-content/uploads/2016/05/home-video.mp4" type="video/mp4"  frameborder="0" allowfullscreen></video> -->
+    </div>
+    <!-- Header 
+    <header>
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">為專業運動者而生的直播平台!</div>
+                <div class="intro-heading">Make Your Sport live!</div>
+                <a href="#services" class="page-scroll btn btn-xl">了解更多</a>
+            </div>
+        </div>
+    </header>
+-->
+    <!-- Services Section -->
+    <div id="services" class="services">
+        <div class="row_2">
+            <div class="p_word">
+                <h2 class="section-heading">Sportfly 運動直播平台 
+</h2>
+                <p class="text-muted">保留教學相長、運動交流的學習情境，支持運動推廣及相互切磋。
+                </p>
+            </div>
+            <div class="p2">
+                <img src="sportfly/img/Showcase_before.png" alt="">
+            </div>
+        </div>
+        <!-- <div class="row text-center">
+            <div class="col-md-4">
+                <div class="p2_1">
+                    <img src="./img/sporticon01.png" alt="">
+                </div>
+                <h4 class="service-heading">贊助系統</h4>
+                <p class="text-muted_1">用行動支持運動好手，</p>
+                <p class="text-muted_1">讓優質直播不間斷。</p>
+            </div>
+            <div class="col-md-4">
+                    <div class="p2_1">
+                        <img src="./img/sporticon02.png" alt="">
+                    </div>
+                <h4 class="service-heading">問答系統</h4>
+                <p class="text-muted_1">優先排序共同問題，</p>
+                <p class="text-muted_1">讓你的好問題不被錯過。</p>
+            </div>
+            <div class="col-md-4">
+                <div class="p2_1">
+                        <img src="./img/sporticon03.png" alt="">
+                </div>
+                <h4 class="service-heading">互動聊天室</h4>
+                <p class="text-muted_1">與喜愛的運動好手切搓、互動，</p>
+                <p class="text-muted_1">體驗生活經驗的交流。</p>
+            </div>
+        </div> -->
+    </div>
+    <div id="services_2" class="services_2">
+        <div class="row text-center">
+            <div class="col-md-5">
+                <div class="s2_pic_sum">
+                    <div class="s2_pic_img">
+                        <img class="s2_pic" src="sportfly/img/iPhone02.png" alt="">
+                    </div>
+                    <div class="s2_pic_mn_img">
+                        <img id='s2_pic_mn' class="s2_pic_talk" src="sportfly/img/mn.png" alt="">
+                    </div>
+                    <div class="s2_pic_qt_img">
+                        <img id='s2_pic_qt' class="s2_pic_talk" src="sportfly/img/qt.png" alt="">
+                    </div>
+                    <div class="s2_pic_talk_img">
+                        <img id='s2_pic_talk' class="s2_pic_talk" src="sportfly/img/talk.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="p2_1_sum">
+                    <div class="col-md-12">
+                        <div class="p2_11">
+                            <div class="p2_pic">
+                                <img id='p2_pic1' src="sportfly/img/sporticon01.png" alt="">
+                            </div>
+                            <div class="p2_w">
+                                <h4 class="service-heading">贊助系統</h4>
+                                <p class="text-muted_1">用行動支持直播主，</p>
+                                <p class="text-muted_1">累積贊助獲得直播主回饋。
+</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="p2_12">
+                            <div class="p2_pic">
+                                <img src="sportfly/img/sporticon02.png" alt="">
+                            </div>
+                            <div class="p2_w">
+                                <h4 class="service-heading">問答系統</h4>
+                                <p class="text-muted_1">優先排序共同問題，</p>
+                                <p class="text-muted_1">讓你的好問題不被錯過。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="p2_13">
+                            <div class="p2_pic">
+                                <img src="sportfly/img/sporticon03.png" alt="">
+                            </div>
+                            <div class="p2_w">
+                                <h4 class="service-heading">互動聊天室</h4>
+                                <p class="text-muted_1">與運動直播主切搓互動，</p>
+                                <p class="text-muted_1">體驗生活經驗的交流。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="services_3" class="services_3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 text-center">
+                    <div class="gym">
+                        <img id='gym' src="sportfly/img/gymefit.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <div class="gym_w">
+                        <h2 class="section-heading">合作夥伴 - GYME FIT
+ 
+</h2>
+                        <h1>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp成立於2015年4月，GYME FIT是一家提供客製化訓練的健身工作室，創辦人Jimmy以自身的經驗和專業知識，推廣正確的健身觀念，秉持著「為自己改變一次」的理念，協助學員達成立定目標，目前GYME FIT提供私人教練課程、團體課、運動矯正與評估和G動學講座。
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">LET’S TRANSFORM TOGETHER!
+</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="newsletter">
+                        <h3 class="section-heading">留下Email，</h3>
+                        <h3 class="section-heading">免費參與我們第一次的運動直播課程，</h3>
+                        <h3 class="section-heading">我們將與專業健身房 GYME FIT 合作，</h3>
+                        <h3 class="section-heading">帶給你專業的運動知識和快樂的運動體驗。</h3>
+                        <script type="text/javascript">
+                        var submitted = false;
+                        </script>
+                        <iframe id="hidden_iframe" name="hidden_iframe" style="display: none;" onload="if(submitted) {window.location='sportfly/thankpage.html';}"></iframe>
+                        <form action="http://www.newsleopard.com/mailverify.htm?x=000000005790c53f0157cd90756b6c13" target="hidden_iframe" method="post" onsubmit="submitted=true;">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Your Email *" id="email" name="email" placeholder="提示內容" required>
+                                </div>
+                                <div class="col-lg-12 text-center">
+                                    <button type="submit" class="btn btn-xl" style="color: black;">搶先體驗</button>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <!-- <form name="sentMessage" id="contactForm" novalidate>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Your Name *" id="name" required data-validation-required-message="請輸入姓名">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Your Email *" id="email" required data-validation-required-message="請輸入email地址">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <textarea class="form-control" placeholder="Your Message *" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="col-lg-12 text-center">
+                                <div id="success"></div>
+                                <button type="submit" class="btn btn-xl">送出資料</button>
+                            </div>
+                        </div>
+                    </form> -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; Sportfly 2016</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li><a href="https://www.facebook.com/sportfly.live/"><i class="fa fa-facebook"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li><a href="#">Privacy Policy</a>
+                        </li>
+                        <li><a href="#">Terms of Use</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- jQuery -->
+    <script src="sportfly/vendor/jquery/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="sportfly/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <!-- Contact Form JavaScript -->
+    <script src="sportfly/js/jqBootstrapValidation.js"></script>
+    <script src="sportfly/js/contact_me.js"></script>
+    <!-- Theme JavaScript -->
+    <script src="sportfly/js/agency.min.js"></script>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.typetype.js"></script>
+    <script type="text/javascript">
+    $(function() {
+
+        // $("button").bind("click",function(){
+        //     $('.ba').attr('src','iPhone02.png').fadeOut(slow);
+        // });
+
+        $('.p2_11').mouseenter(function() {
+
+            //     // $('dock li').removeClass();
+            $('#s2_pic_mn').fadeIn();
+        });
+
+        $('.p2_11').mouseleave(function() {
+
+            //     // $('dock li').removeClass();
+            $('#s2_pic_mn').hide();
+        });
+
+        $('.p2_12').mouseenter(function() {
+
+            //     // $('dock li').removeClass();
+            $('#s2_pic_qt').fadeIn();
+        });
+
+        $('.p2_12').mouseleave(function() {
+
+            //     // $('dock li').removeClass();
+            $('#s2_pic_qt').hide();
+        });
+
+
+        $('.p2_13').mouseenter(function() {
+
+            //     // $('dock li').removeClass();
+            $('#s2_pic_talk').fadeIn();
+        });
+
+        $('.p2_13').mouseleave(function() {
+
+            //     // $('dock li').removeClass();
+            $('#s2_pic_talk').hide();
+        });
+
+
+
+    })
+    </script>
+</body>
+
+</html>
