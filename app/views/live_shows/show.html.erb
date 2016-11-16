@@ -20,8 +20,11 @@
                             <div class="progress-bar progress-bar-warning" style="width:80%"></div>
                         </div>
                     </div>
-                    <div class="fb-video" data-href= "<%= @live_show.fb_url %>" data-width="650" data-height="400" data-show-text="false">
+                    <!-- <div class="fb-video" data-href= "<%= @live_show.fb_url %>" data-width="650" data-height="400" data-show-text="false">
                         <blockquote cite="https://www.facebook.com/naruko.tw/videos/10154012016058862/" class="fb-xfbml-parse-ignore"></blockquote>
+                    </div> -->
+                    <div class="fb-video" data-width="650" data-height="400" data-show-text="false">
+                      <%= @live_show.fb_url.html_safe %>
                     </div>
                     <div class="live_talk"></div>
                 </div>
@@ -49,7 +52,7 @@
                      <%# end %>
                       <div class="live_bottom_b_box">
                           <div class="live_bottom_b_item">
-                              <img src="http://s2.post01.com/uploads/ c4/b/119050/14689381446338.jpg">
+                              <img src="http://s2.post01.com/uploads/c4/b/119050/14689381446338.jpg">
                               <div class="live_bottom_b_words">
                                   <p>舉重訓練 Part 1</p>
                                   <p>直播時間:2016/10/5</p>
