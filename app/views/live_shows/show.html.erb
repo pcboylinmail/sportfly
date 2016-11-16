@@ -6,5 +6,5 @@
 
 <% @live_shows.each do |l| %>
   <%= l.name %>
-  <%= link_to "進入直播室", user_live_show_path(l.user,l) %>
+  <%= link_to "進入直播室", live_show_path(l) %>
 <% end %>
