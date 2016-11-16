@@ -1,10 +1,92 @@
-<%= image_tag @user.fb_image %>
-<%= @user.fb_name %>的頻道
-<%= @live_show.name %>
-<%= @user.description %>
-<%= @user.fb_name %>的影片
+<%#= image_tag @user.fb_image %>
+<%#= @user.fb_name %>
+<%#= @live_show.name %>
+<%#= @user.description %>
+<%#= @user.fb_name %>
 
-<% @live_shows.each do |l| %>
-  <%= l.name %>
-  <%= link_to "進入直播室", live_show_path(l) %>
-<% end %>
+<%# @live_shows.each do |l| %>
+  <%#= l.name %>
+  <%#= link_to "進入直播室", live_show_path(l) %>
+<%# end %>
+<div class="container">
+    <div class="channel_row">
+        <div class="col-lg-12">
+            <div><br>
+                <div class="live_top">
+                    <div class="live_top_top">
+                        <div class="live_name"><h4><%= @live_show.name %></h4></div>
+    <!--                     <div class="live_follow">追隨</div> -->
+                        <div class="progress progress-striped active">
+                            <div class="progress-bar progress-bar-warning" style="width:80%"></div>
+                        </div>
+                    </div>
+                    <div class="fb-video" data-href= "<%= @live_show.fb_url %>" data-width="650" data-height="400" data-show-text="false">
+                        <blockquote cite="https://www.facebook.com/naruko.tw/videos/10154012016058862/" class="fb-xfbml-parse-ignore"></blockquote>
+                    </div>
+                    <div class="live_talk"></div>
+                </div>
+                <br>
+                <div class="live_bottom">
+
+                    <div class="border_up">
+                        <h3><%= @user.fb_name %> 的頻道</h3>
+                    </div>
+                    <div class="live_bottom_a">
+                        <div class="live_pic">
+                            <img src="http://s2.post01.com/uploads/c4/b/119050/14689381446338.jpg">
+                        </div>
+                        <div class="live_contant">
+                          <%= @user.description %>
+                        </div>
+                    </div>
+                    <div class="border_down">
+                        <h3><%= @user.fb_name %> 的影片</h3>
+                    </div>
+                    <div class="live_bottom_b">
+                     <%# @live_shows.each do |l| %>
+                       <%#= l.name %>
+                       <%#= link_to "進入直播室", live_show_path(l) %>
+                     <%# end %>
+                      <div class="live_bottom_b_box">
+                          <div class="live_bottom_b_item">
+                              <img src="http://s2.post01.com/uploads/ c4/b/119050/14689381446338.jpg">
+                              <div class="live_bottom_b_words">
+                                  <p>舉重訓練 Part 1</p>
+                                  <p>直播時間:2016/10/5</p>
+                              </div>
+                          </div>
+                          <div class="live_bottom_b_item">
+                              <img src="http://s2.post01.com/uploads/c4/b/119050/14689381446338.jpg">
+                              <div class="live_bottom_b_words">
+                                  <p>舉重訓練 Part 2</p>
+                                  <p>直播時間:2016/10/5</p>
+                              </div>
+                          </div>
+                          <div class="live_bottom_b_item">
+                              <img src="http://s2.post01.com/uploads/c4/b/119050/14689381446338.jpg">
+                              <div class="live_bottom_b_words">
+                                  <p>舉重訓練 Part 3</p>
+                                  <p>直播時間:2016/10/5</p>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                      <%# @live_shows.each do |l| %>
+                        <%#= l.name %>
+                        <%#= link_to "進入直播室", live_show_path(l) %>
+                      <%# end %>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+ var js, fjs = d.getElementsByTagName(s)[0];
+ if (d.getElementById(id)) return;
+ js = d.createElement(s); js.id = id;
+ js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.8&appId=636280343220058";
+ fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
