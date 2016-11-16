@@ -1,4 +1,4 @@
-class Api::UsersController < ApplicationController
+class Api::UsersController < Api::ApiController
   before_action :authenticate_user!
   def index
     @users = User.all

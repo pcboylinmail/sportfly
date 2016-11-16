@@ -1,5 +1,5 @@
-class Api::ApiController < ActionController::Base
-  #skip_before_action :verify_authenticity_token
+class Api::ApiController < ApplicationController
+  skip_before_action :verify_authenticity_token
   #因為不是繼承application_controller.rb，而是繼承他的父層ActionController
   #所以可以不用skip_before_action
   before_action :enable_cors
