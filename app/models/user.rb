@@ -58,7 +58,7 @@ class User < ApplicationRecord
 
   def self.get_fb_data(access_token)
     #res = RestClient.get "https://graph.facebook.com/v2.4/me",  { :params => { :access_token => access_token } }
-    res = RestClient.get "",  { :params => { :access_token => access_token, :fields => "id,name,email,picture,link,gender" } }
+    res = RestClient.get "https://graph.facebook.com/v2.4/me",  { :params => { :access_token => access_token, :fields => "id,name,email,picture,link,gender" } }
     if res.code == 200
       JSON.parse( res.to_str )
     else
