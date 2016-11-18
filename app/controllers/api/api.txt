@@ -5,3 +5,4 @@ set頻道簡介          PATCH   sportfly.live/api/users/:id
                                    頻道簡介:description]
 訂閱                 POST    sportfly.live/api/live_shows/:live_show_id/followings
 反訂閱
+YO!!!!!
