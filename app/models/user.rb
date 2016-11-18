@@ -17,6 +17,8 @@ class User < ApplicationRecord
   has_many :watchings
   has_many :watch_lives, :through => :watchings, :source => :live_show
 
+  has_attached_file :picture, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "http://s2.post01.com/uploads/c4/b/119050/14689381446338.jpg"
+  validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/
   def generate_authentication_token
      self.authentication_token = Devise.friendly_token
   end
@@ -57,8 +59,8 @@ class User < ApplicationRecord
   end
 
   def self.get_fb_data(access_token)
-    res = RestClient.get "https://graph.facebook.com/v2.4/me",  { :params => { :access_token => access_token } }
-
+    #res = RestClient.get "https://graph.facebook.com/v2.4/me",  { :params => { :access_token => access_token } }
+    res = RestClient.get "https://graph.facebook.com/v2.4/me",  { :params => { :access_token => access_token, :fields => "id,name,email,picture,link,gender" } }
     if res.code == 200
       JSON.parse( res.to_str )
     else

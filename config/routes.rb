@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   #devise_for :users
-  root :to => "live_shows#show"
-  resources :homes do 
+  # root :to => "live_shows#index"
+  root :to => "homes#index"
+
+  resources :homes do
+
     collection do
 
       get :g_index
@@ -22,9 +25,14 @@ resources :users
    end
  end
   end
-  resources :users do
-    resources :live_shows
+  resources :users
+  resources :live_shows do
+    resources :followings
+    resources :chats
+    resources :questions do
+      resources :askings
+    end
   end
-
+  get '/g_index' => 'homes#g_index' , :as => 'g_index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

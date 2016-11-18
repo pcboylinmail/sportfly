@@ -1,0 +1,8 @@
+每個request都要帶auth_token
+影片紀錄、get頻道簡介  GET     sportfly.live/api/users/:id
+set頻道簡介          PATCH   sportfly.live/api/users/:id
+                            params[頻道名稱:channel_name,
+                                   頻道簡介:description]
+訂閱                 POST    sportfly.live/api/live_shows/:live_show_id/followings
+反訂閱
+YO!!!!!

@@ -11,8 +11,8 @@ class Api::ChatsController < Api::ApiController
 
   def create
     @chat = Chat.new(:user_id => current_user.id,
-              :live_show_id => params[:live_show_id],
-              :content => params[:content])
+                     :live_show_id => params[:live_show_id],
+                     :content => params[:content])
     if @chat.save
       render :json => {
         :status => 200,

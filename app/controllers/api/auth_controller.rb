@@ -1,4 +1,4 @@
-class Api::AuthController < ApplicationController
+class Api::AuthController < Api::ApiController
   before_action :authenticate_user!, :only => [:logout]
 
   def login
@@ -13,21 +13,27 @@ class Api::AuthController < ApplicationController
         auth_hash = OmniAuth::AuthHash.new({
           uid: fb_data["id"],
           info: {
-            email: fb_data["email"]
+            email: fb_data["email"],
+            name: fb_data["name"],
+            image: fb_data["picture"]["data"]["url"]
           },
           credentials: {
             token: params[:access_token]
+          },
+          extra: {
+            raw_info: {
+              link: fb_data["link"],
+              gender: fb_data["gender"]
+            }
           }
         })
         user = User.from_omniauth(auth_hash)
       end
-
       success = fb_data && user.persisted?
     end
 
     if success
-      render :json => { :status => 200,
-                        :message => "Ok",
+      render :json => {
                         :auth_token => user.authentication_token,
                         :user_id => user.id }
     else
