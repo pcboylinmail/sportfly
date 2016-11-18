@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   #devise_for :users
   # root :to => "live_shows#index"
-  root :to => "homes#index"
-
+  # root :to => "homes#index"
+  root :to => "live_shows#index"
   resources :homes do
 
     collection do
@@ -28,11 +28,17 @@ resources :users
   resources :users
   resources :live_shows do
     resources :followings
-    resources :chats
+    resources :chats do
+      member do
+        post :like
+        post :unlike
+      end
+    end
     resources :questions do
       resources :askings
     end
   end
+  mount ActionCable.server => "/cable"
   get '/g_index' => 'homes#g_index' , :as => 'g_index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :followings
   has_many :followers, :through => :followings
   has_many :live_shows
-  has_many :chats
+  has_many :chats, dependent: :destroy
   has_many :questions
   has_many :askings, :dependent => :destroy
   has_many :wonder_questions, :through => :askings, :source => :question

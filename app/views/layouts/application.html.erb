@@ -47,20 +47,21 @@
         <ul id="nav_words" class="nav navbar-nav navbar-right">
 
         <!-- 搜尋表單 -->
-          <li>
+          <!-- <li>
             <form class="navbar-form" role="search">
               <div class="form-group">
                 <input type="text" class="form-control" placeholder="請輸入關鍵字">
               </div>
               <button type="submit" class="btn btn-default">搜尋</button>
             </form>
-          </li>
+          </li> -->
 
 
-        <% if current_user %>
+        <% if current_user %> 
           <li><%= link_to('登出', destroy_user_session_path, :method => :delete) %></li>
         <% else %>
-            <li><%= link_to "登入 Facebook", user_facebook_omniauth_authorize_path %></li>
+          <li>pcboy</li> 
+          <li><%= link_to "登入 Facebook", user_facebook_omniauth_authorize_path %></li>
         <% end %>
 
           <!-- <li class="dropdown">

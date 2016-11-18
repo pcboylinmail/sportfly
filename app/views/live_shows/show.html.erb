@@ -8,6 +8,23 @@
   <%#= l.name %>
   <%#= link_to "進入直播室", live_show_path(l) %>
 <%# end %>
+<script type="text/javascript">
+function add()
+{
+var now = new Date();
+var div = document.getElementById('live_talk_word');
+div.scrollTop = div.scrollHeight;
+}
+$('.live_talk_word').css({"overflow-y": "hidden"})
+  $(".live_talk_word").on("mouseenter mouseleave", function (event) { 
+  if (event.type == "mouseenter") {
+    $(this).css({"overflow-y": "auto"}); //滑鼠進入
+  }
+});
+window.onload = function () {add();}
+  window.current_user_id = <%= current_user.id %>
+  window.live_show_id = <%= @live_show.id %>
+</script>
 <div class="container">
     <div class="channel_row">
         <div class="col-lg-12">
@@ -24,9 +41,45 @@
                         <blockquote cite="https://www.facebook.com/naruko.tw/videos/10154012016058862/" class="fb-xfbml-parse-ignore"></blockquote>
                     </div> -->
                     <div class="fb-video" data-width="650" data-height="400" data-show-text="false">
-                      <%= @live_show.fb_url.try(:html_safe) %>
+                        <%= @live_show.fb_url.try(:html_safe) %>
                     </div>
-                    <div class="live_talk"></div>
+                    <div class="live_talk">
+                      <div id="live_talk_word" class="live_talk_word">
+                        <table id="live_talk_table" class="table">
+                          <tr>
+                            <th>票數</th>
+                            <th>問題</th>
+                            <th>愛</th>
+                          </tr>
+                              <% @live_show.chats.all.order("id DESC").each do |m| %>
+                                <tr>
+                                  <% if m.user_id == current_user.id %>
+                                    <td></td>
+                                    <td class="live_talk_r"> <img class='imggg2' src='<%=m.user.fb_image%>'>
+                                    <span><%= m.content %></span></td>
+                                    
+                                </tr>
+                                  <%else%>
+                                <tr>
+                                  <td></td>
+                                  <td class="live_talk_r"><img class='imggg2' src='<%=m.user.fb_image%>'>
+                                  <span><%= m.content %></span></td>
+                                     
+                              </tr>
+                                  <% end %>
+                              <% end %>
+                        </table>
+                      </div>
+                      <div class="live_talk_submit">
+                        <%= form_for [@live_show,@chat], :remote => true do |f| %>
+                             <input type="hidden" name="live_show" value="<%= @live_show.id %>">
+
+                             <%= f.text_field :content, :class=>"cc" %>
+                             <%= f.submit "送出",:onclick => "add()"%>
+                        <% end %>
+                    </div>
+                    </div>
+                    
                 </div>
                 <br>
                 <div class="live_bottom">
