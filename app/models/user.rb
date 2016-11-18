@@ -74,7 +74,8 @@ class User < ApplicationRecord
       :user => self,
       :user_live_shows => self.live_shows,
       #:user_followers => self.followers,
-      :user_followings => Following.where(follower_id: self.id)
+      :user_followings => Following.where(follower_id: self.id),
+      :user_followers_count => self.followers.count
     }
   end
 end
