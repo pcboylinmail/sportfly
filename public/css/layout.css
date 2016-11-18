@@ -268,7 +268,40 @@ body .navbar_logo img {
 }
 
 
-/*talk*/
+/*talk*/ 
+.show_navtab .nav-tabs > li,
+.show_navtab .nav-pills > li {
+    float: none;
+    display: inline-block;
+    *display: inline;
+    /* ie7 fix */
+    zoom: 1;
+    /* hasLayout ie7 trigger */
+    width: auto;
+}
+
+.show_navtab .nav-tabs,
+.show_navtab .nav-pills {
+    text-align: center;
+    border-color: transparent;
+}
+
+.show_navtab .nav.active a {
+    background-color: white !important;
+    color: #FA6503;
+}
+
+.show_navtab .nav-tabs a {
+    width: 196px;
+    background-color: transparent;
+    /*border-bottom-color: white !important;*/
+    color: #FA6503;
+}
+
+.show_navtab .nav-tabs a:hover {
+    background-color: transparent !important;
+    border-color: #FA6503 !important;
+}
 .imggg2  {
     position: relative;
     border-radius: 50%;
