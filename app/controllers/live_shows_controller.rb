@@ -11,4 +11,5 @@ class LiveShowsController < ApplicationController
     #@live_show.fb_url = @live_show.fb_url.split('"').second
 
   end
+  
 end

@@ -1,5 +1,5 @@
 class ChatsController < ApplicationController
-	before_action :set_live_show,only:[:show]
+	before_action :set_live_show,only:[:show, :like, :unlike]
   # GET /chats
   # GET /chats.json
   def index
@@ -72,40 +72,43 @@ class ChatsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  # def love
-  #   puts "you_are_love"
-  #   @love = current_user.loves.build(:chat_id => params[:id])
-  #   @love.save
-  #   respond_to do |format|
-  #     format.html do 
-  #       redirect_to live_show_path(:id => @live_show.id) 
-  #     end
-  #     format.json do
-  #       render :json=> {:chat => "ok"}
-  #     end
-  #   end
-  # end
-  # def unlove
-  #   puts "you_are_love"
-  #   @love = current_user.loves.find_by_chat_id(params[:id])
-  #   @love.destroy
-  #   respond_to do |format|
-  #     format.html do 
-  #       redirect_to live_show_path(:id => @live_show.id) 
-  #     end
-  #     format.json do
-  #       render :json=> {:chat => "ok"}
-  #     end
-  #   end
 
-  # end
+  def like
+    puts "you_are_like"
+    @like = current_user.likes.build(:chat_id => params[:id])
+    @like.save
+    respond_to do |format|
+      format.html do 
+        redirect_to live_show_path(:id => @live_show.id) 
+      end
+      format.json do
+        render :json=> {:message => "ok"}
+      end
+    end
+  end
+
+  def unlike
+    puts "you_are_like"
+    @like = current_user.likes.find_by_chat_id(params[:id])
+    @like.destroy
+    respond_to do |format|
+      format.html do 
+        redirect_to live_show_path(:id => @live_show.id) 
+      end
+      format.json do
+        render :json=> {:message => "ok"}
+      end
+    end
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     # def set_chat
     #   @chat = chat.find(params[:id])
     # end
     def set_live_show
-      @live_show = ChatRoom.find(params[:live_show_id])
+      @live_show = LiveShow.find(params[:live_show_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

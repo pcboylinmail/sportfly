@@ -57,7 +57,13 @@ window.onload = function () {add();}
                                     <td></td>
                                     <td class="live_talk_r"> <img class='imggg2' src='<%=m.user.fb_image%>'>
                                     <span><%= m.content %></span></td>
-                                    
+                                    <%if current_user.likes.find_by_chat_id(m.id)%>
+                                      <td><%= link_to "已按", unlike_live_show_chat_path(@live_show, m), :method => :post ,:class => "glyphicon glyphicon-thumbs-up"%>
+                                      </td>
+                                    <%else%>
+                                      <td><%= link_to "讚", like_live_show_chat_path(@live_show, m), :method => :post, :class=>"glyphicon glyphicon-thumbs-up"%>
+                                      </td>
+                                    <% end %>
                                 </tr>
                                   <%else%>
                                 <tr>

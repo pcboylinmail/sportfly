@@ -26,35 +26,73 @@ App.chats = App.cable.subscriptions.create("ChatsChannel", {
         //     elm += "<td class='live_talk_l'>";
         // }
         elm += "<td class='live_talk_r'>";
-        elm += "<img class='imggg2' src='" +userImg+ "'>";
+        elm += "<img class='imggg2' src='" + userImg + "'>";
         elm += "<span>" + " :  " + content + "</span>";
 
         elm += "</td>";
-        elm += "<td></td>";
-        // elm += "<td><button id='love_" + chatId + "'>love</button>";
-        // elm += "<button id='unlove_" + chatId + "'>unlove</button></td>";
+        elm += "<td><button id='like_" + chatId + "'>讚</button>";
+        elm += "<button id='unlike_" + chatId + "'>已按讚</button></td>";
         elm += "</tr>";
         $("#live_talk_table").append(elm);
 
         $("#chat_content").val("");
 
-        // $("#love_" + chatId).click(function(e) {
-        //     e.preventDefault();
-        //     var chatIds = chatId;
-        //     var userId = userId;
-        //     var chatroomId = chat_room_id;
-        //     var love_counts = love_count;
-        //     var chat_Id = c;
-        //     setLove(chatIds, userId, chat_room_id, love_counts);
-        // });
-        // $("#unlove_" + chatId).click(function(e) {
-        //     e.preventDefault();
-        //     var chatIds = chatId;
-        //     var userId = userId;
-        //     var chatroomId = chat_room_id;
-        //     setunLove(chatIds, userId, chatroomId);
-        // });
+        $("#like_" + chatId).click(function(e) {
+            e.preventDefault();
+            var chatIds = chatId;
+            var userId = userId;
+            var live_showId = live_show_id;
+            // var love_counts = love_count;
+            var chat_Id = c;
+            setLike(chatIds, userId, live_showId);
+        });
+        $("#unlike_" + chatId).click(function(e) {
+            e.preventDefault();
+            var chatIds = chatId;
+            var userId = userId;
+            var live_showId = live_show_id;
+            setunLike(chatIds, userId, live_showId);
+        });
 
 
     }
 });
+
+function setLike(chatIds, userId, live_showId) {
+    $.ajax({
+        url: "/live_shows/" + live_showId + "/chats/" + chatIds + "/like",
+        data: { user: { id: userId } },
+        method: "post",
+        dataType: "JSON",
+        success: function(data) {
+            console.log('set_Like success!!', data);
+            // $(".like").addClass("select");
+            // love_counts++;
+            // $("#count_message_" + messageIds).html(love_counts);
+            // console.log('love_counts=', love_counts);
+
+
+        },
+        error: function(message) {
+            console.log('set_Like error!!', message);
+        }
+    })
+}
+
+function setunLike(chatIds, userId, live_showId) {
+    $.ajax({
+        url: "/live_shows/" + live_showId + "/chats/" + chatIds + "/unlike",
+        data: { user: { id: userId } },
+        method: "post",
+        dataType: "JSON",
+        success: function(data) {
+            console.log('set_unLove success!!', data);
+            // $(".like").addClass("select");
+            // love_counts--;
+            // $("#count_message_" + messageIds).html(love_counts);
+        },
+        error: function(message) {
+            console.log('set_unLove error!!', message);
+        }
+    })
+}
