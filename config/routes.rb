@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   namespace :api, :defaults => { :format => :json } do
     post "login" => "auth#login"
     post "logout" => "auth#logout"
-    resources :users
+    resources :users do
+      post "picture_upload"
+    end
     resources :live_shows do
       resources :followings
       resources :chats
