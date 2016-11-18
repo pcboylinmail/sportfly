@@ -17,6 +17,6 @@
 !/log/.keep
 !/tmp/.keep
 /config/facebook.yml
-/config/initializers/devise.rb
+# /config/initializers/devise.rb
 # Ignore Byebug command history file.
 .byebug_history
