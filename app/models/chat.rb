@@ -3,6 +3,10 @@ class Chat < ApplicationRecord
   belongs_to :user
   belongs_to :live_show
 
+  # def self.latest_chat
+  #   self.where(Time.now)
+  # end
+
   def return_json
     {
       :chat => self,

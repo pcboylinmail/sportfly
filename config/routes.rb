@@ -19,7 +19,9 @@ Rails.application.routes.draw do
     end
     resources :live_shows do
       resources :followings
-      resources :chats
+      resources :chats do
+        get "latest_chats"
+      end
       resources :questions do
         resources :askings
       end
