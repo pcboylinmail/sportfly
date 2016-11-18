@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161109111258) do
+ActiveRecord::Schema.define(version: 20161118123513) do
 
   create_table "askings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.integer  "user_id"
@@ -45,7 +45,17 @@ ActiveRecord::Schema.define(version: 20161109111258) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.string   "fb_url"
     t.index ["user_id"], name: "index_live_shows_on_user_id", using: :btree
+  end
+
+  create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+    t.text     "content",      limit: 65535
+    t.integer  "user_id"
+    t.integer  "live_show_id"
+    t.integer  "likes_count",                default: 0
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
   end
 
   create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
@@ -54,7 +64,9 @@ ActiveRecord::Schema.define(version: 20161109111258) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.integer  "users_count",  default: 0
+    t.integer  "user_id"
     t.index ["live_show_id"], name: "index_questions_on_live_show_id", using: :btree
+    t.index ["user_id"], name: "index_questions_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
@@ -79,6 +91,12 @@ ActiveRecord::Schema.define(version: 20161109111258) do
     t.string   "fb_image"
     t.string   "fb_link"
     t.string   "gender"
+    t.string   "authentication_token"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
+    t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["fb_uid"], name: "index_users_on_fb_uid", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
