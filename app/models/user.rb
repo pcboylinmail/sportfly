@@ -17,6 +17,8 @@ class User < ApplicationRecord
   has_many :watchings
   has_many :watch_lives, :through => :watchings, :source => :live_show
 
+  has_attached_file :picture, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "http://s2.post01.com/uploads/c4/b/119050/14689381446338.jpg"
+  validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/
   def generate_authentication_token
      self.authentication_token = Devise.friendly_token
   end

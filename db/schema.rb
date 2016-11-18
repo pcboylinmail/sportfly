@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161116064725) do
+ActiveRecord::Schema.define(version: 20161118033436) do
 
   create_table "askings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.integer  "user_id"
@@ -83,6 +83,10 @@ ActiveRecord::Schema.define(version: 20161116064725) do
     t.string   "fb_link"
     t.string   "gender"
     t.string   "authentication_token"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
     t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["fb_uid"], name: "index_users_on_fb_uid", using: :btree
