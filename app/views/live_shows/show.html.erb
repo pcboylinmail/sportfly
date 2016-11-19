@@ -73,6 +73,14 @@ window.live_show_id = <%= @live_show.id %>
                                                 <td class="live_talk_r"> <img class='imggg2' src='<%=m.user.fb_image%>'>
                                                     <span><%= m.subject %></span>
                                                 </td>
+
+                                                  <%if current_user.askings.find_by_question_id(m.id)%>
+                                                  <td><%= link_to "已按", live_show_question_asking_path(@live_show,m), :method => :post ,:class => "glyphicon glyphicon-thumbs-up"%>
+                                                  </td>
+                                                   <%else%>
+                                                        
+                                                    <td><%= link_to "讚", live_show_question_askings_path(@live_show,m), :method => :post, :class=>"glyphicon glyphicon-thumbs-up"%></td>      <%end%>
+                  
                                         </tr>
                                         <%else%>
                                             <tr>
@@ -92,7 +100,7 @@ window.live_show_id = <%= @live_show.id %>
                         <div class="live_talk_submit">
                             <%= form_for [@live_show,@question], :remote => true do |f| %>
                                 <input type="hidden" name="live_show" value="<%= @live_show.id %>">
-                                <%= f.text_field :subject,:id => "cc", :class=>"cc" %>
+                                <%= f.text_field :subject,:id =>'content' %>
                                     <%= f.submit "送出",:onclick => "add()"%>
                                         <% end %>
                         </div>

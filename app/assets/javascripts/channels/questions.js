@@ -36,76 +36,79 @@ App.questions = App.cable.subscriptions.create("QuestionsChannel", {
         //     elm += "<td><button id='like_" + questionId + "'>讚</button></td>";
         // }
 
-        // elm += "<td><button id='unlike_" + questionId + "'>已按讚</button>";
+        elm += "<td><button id='unlike_" + questionId + "'>已按讚</button>";
 
-        // elm += "<button id='like_" + questionId + "'>讚</button></td>";
+        elm += "<button id='like_" + questionId + "'>讚</button></td>";
 
         elm += "</tr>";
         $("#live_talk_table").append(elm);
 
-        $("#cc").val("");
+        $("#content").val("");
 
-        // $("#like_" + questionId).click(function(e) {
-        //     e.preventDefault();
-        //     var questionIds = questionId;
-        //     var userIds = userId;
-        //     var live_showId = live_show_id;
-        //     var like_counts = like_count;
-        //     // var question_Id = c;
-        //     setLike(questionIds, userIds, live_showId, like_counts);
+        $("#like_" + questionId).click(function(e) {
+            e.preventDefault();
+            var questionIds = questionId;
+            var userIds = userId;
+            var live_showId = live_show_id;
+            //var like_counts = like_count;
+            // var question_Id = c;
+            setLike(questionIds, userIds, live_showId);
             
-        // });
-        // $("#unlike_" + questionId).click(function(e) {
-        //     e.preventDefault();
-        //     var questionIds = questionId;
-        //     var userIds = userId;
-        //     var live_showId = live_show_id;
-        //     var like_counts = like_count;
-        //     setunLike(questionIds, userIds, live_showId, like_counts);
-        // });
+        });
+        $("#unlike_" + questionId).click(function(e) {
+            e.preventDefault();
+            var questionIds = questionId;
+            var userIds = userId;
+            var live_showId = live_show_id;
+            //var like_counts = like_count;
+            setunLike(questionIds, userIds, live_showId);
+        });
 
 
     }
 });
 
-// function setLike(questionIds, userIds, live_showId, like_counts) {
-//     $.ajax({
-//         url: "/live_shows/" + live_showId + "/questions/" + questionIds + "/like",
-//         data: { user: { id: userIds } },
-//         method: "post",
-//         dataType: "JSON",
-//         success: function(data) {
-//             console.log('set_Like success!!', data);
-//             // $(".like").addClass("select");
-//             like_counts++;
-//             $("#count_question_" + questionIds).html(like_counts);
-//             console.log('like_counts=', like_counts);
+function setLike(questionIds, userIds, live_showId) {
+    $.ajax({
+        url: "/live_shows/" + live_showId + "/questions/" + questionIds + "/askings",
+        data: { user: { id: userIds } },
+        method: "post",
+        dataType: "JSON",
+        success: function(data) {
+            console.log('set_Like success!!', data);
+
+            // $(".like").addClass("select");
+            // like_counts++;
+            // $("#count_question_" + questionIds).html(like_counts);
+            // console.log('like_counts=', like_counts);
 
 
-//         },
-//         error: function(message) {
-//             console.log('set_Like error!!', message);
-//         }
-//     })
-// }
+        },
+        error: function(message) {
+            console.log('set_Like error!!', message);
+            console.log('like_counts=', userIds);
+        }
+    })
+}
 
-// function setunLike(questionIds, userIds, live_showId, like_counts) {
-//     $.ajax({
-//         url: "/live_shows/" + live_showId + "/questions/" + questionIds + "/unlike",
-//         data: { user: { id: userIds } },
-//         method: "post",
-//         dataType: "JSON",
-//         success: function(data) {
-//             console.log('set_unLike success!!', data);
-//             // $(".unlike").addClass("select");
-//             like_counts = like_counts - 1;
-//             if (like_counts < 0) {
-//                 like_counts = 0;
-//             }
-//             $("#count_question_" + questionIds).html(like_counts);
-//         },
-//         error: function(message) {
-//             console.log('set_unLike error!!', message);
-//         }
-//     })
-// }
+function setunLike(questionIds, userIds, live_showId) {
+    $.ajax({
+        url: "/live_shows/" + live_showId + "/questions/" + questionIds + "/askings",
+        data: { user: { id: userIds } },
+        method: "post",
+        dataType: "JSON",
+        success: function(data) {
+            console.log('set_unLike success!!', data);
+            console.log('userIds=', userIds);
+            // $(".unlike").addClass("select");
+            // like_counts = like_counts - 1;
+            // if (like_counts < 0) {
+            //     like_counts = 0;
+            // }
+            // $("#count_question_" + questionIds).html(like_counts);
+        },
+        error: function(message) {
+
+        }
+    })
+}
