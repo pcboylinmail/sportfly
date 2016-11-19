@@ -7,6 +7,15 @@ class Api::ChatsController < Api::ApiController
       :live_show => @live_show.return_json,
       :chats => @chats.map{|i|i.return_json}
     }
+
+  end
+
+  def latest_chats
+    @live_show = LiveShow.find(params[:live_show_id])
+    @chats = @live_show.chats.where( " id > ? ", params[:chat_id] )
+    render :json =>{
+      :chats => @chats
+    }
   end
 
   def create

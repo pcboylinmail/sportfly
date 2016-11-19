@@ -48,7 +48,8 @@ window.live_show_id = <%= @live_show.id %>
                           <blockquote cite="https://www.facebook.com/naruko.tw/videos/10154012016058862/" class="fb-xfbml-parse-ignore"></blockquote>
                       </div> -->
                     <div class="fb-video" data-width="650" data-height="400" data-show-text="false">
-                        <%= @live_show.fb_url.try(:html_safe) %>
+
+                     <iframe src="<%= @live_show.fb_url.split('"').second.try(:html_safe) %>" width="650" height="400" frameborder="0"></iframe>
                     </div>
                     <div class="live_talk">
                         <div class="show_navtab">
@@ -95,6 +96,7 @@ window.live_show_id = <%= @live_show.id %>
                                     <%= f.submit "送出",:onclick => "add()"%>
                                         <% end %>
                         </div>
+
                     </div>
                 </div>
                 <br>

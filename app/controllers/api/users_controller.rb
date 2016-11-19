@@ -44,18 +44,10 @@ class Api::UsersController < Api::ApiController
   def update
     @user = User.find(params[:id])
     @user.update(
-                  # email: params[:email],
                   channel_name: params[:channel_name],
                   description: params[:description],
-                  # live_owner: params[:live_owner],
-                  # fb_uid: params[:fb_uid],
-                  # fb_token: params[:fb_token],
-                  # fb_name: params[:fb_name],
-                  # fb_image: params[:fb_image],
-                  # fb_link: params[:fb_link],
-                  # gender: params[:gender],
-                  # authentication_token: params[:authentication_token]
                   )
+
     if @user.save
       render :json => {
         :status => 200,
@@ -69,4 +61,22 @@ class Api::UsersController < Api::ApiController
       }
     end
   end
+  def picture_upload
+    @user = User.find(params[:id])
+    @user.update(picture: params[:picture])
+    if @user.save
+      render :json => {
+        :status => 200,
+        :message => "update succeed",
+        :user => @user
+      }
+    else
+      render :json => {
+             :status => 401,
+             :message => "update failed"
+      }
+    end
+  end
+  private
+
 end
