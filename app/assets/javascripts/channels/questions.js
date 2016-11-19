@@ -11,10 +11,10 @@ App.questions = App.cable.subscriptions.create("QuestionsChannel", {
 
         var userImg = data["user"]["fb_image"];
         var userId = data["user"]["id"];
-        var like_count = data["question"]["likes_count"]
+        // var like_count = data["question"]["likes_count"]
         var questionId = data["question"]["id"];
         var content = data["question"]["subject"];
-        var c = data["question"]["id"];
+        // var c = data["question"]["id"];
 
         var container = $("#table");
         var elm = "<tr>";
@@ -53,7 +53,7 @@ App.questions = App.cable.subscriptions.create("QuestionsChannel", {
         //     var like_counts = like_count;
         //     // var question_Id = c;
         //     setLike(questionIds, userIds, live_showId, like_counts);
-            
+
         // });
         // $("#unlike_" + questionId).click(function(e) {
         //     e.preventDefault();
