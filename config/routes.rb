@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   #devise_for :users
   # root :to => "live_shows#index"
   root :to => "homes#index"
-
+  mount ActionCable.server => "/cable"
   resources :homes do
     collection do
 
