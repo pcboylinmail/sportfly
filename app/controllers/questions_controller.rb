@@ -73,36 +73,6 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def like
-    puts "you_are_like"
-    @like = current_user.likes.build(:question_id => params[:id])
-    raise
-    @like.save
-    respond_to do |format|
-      format.html do 
-        redirect_to live_show_path(:id => @live_show.id) 
-      end
-      format.json do
-        render :json=> {:message => "ok"}
-      end
-    end
-  end
-
-  def unlike
-    puts "you_are_like"
-    @like = current_user.likes.find_by_question_id(params[:id])
-    @like.destroy
-    respond_to do |format|
-      format.html do 
-        redirect_to live_show_path(:id => @live_show.id) 
-      end
-      format.json do
-        render :json=> {:message => "ok"}
-      end
-    end
-
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     # def set_question
