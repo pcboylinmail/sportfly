@@ -15,7 +15,7 @@ App.questions = App.cable.subscriptions.create("QuestionsChannel", {
         var questionId = data["question"]["id"];
         var content = data["question"]["subject"];
         // var c = data["question"]["id"];
-
+        var userName = data["user"]["fb_name"]
         var container = $("#table");
         var elm = "<tr>";
         // elm += "<td id='count_question_" + questionId + "'>" + "</td>";
@@ -27,6 +27,7 @@ App.questions = App.cable.subscriptions.create("QuestionsChannel", {
         // }
         elm += "<td class='live_talk_r'>";
         elm += "<img class='imggg2' src='" + userImg + "'>";
+        elm += "<span>" + userName + "</span>";
         elm += "<span>" + " :  " + content + "</span>";
 
         elm += "</td>";

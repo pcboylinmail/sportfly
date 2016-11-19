@@ -71,6 +71,7 @@ window.live_show_id = <%= @live_show.id %>
                                             <% if m.user_id == current_user.id %>
                                                 <td></td>
                                                 <td class="live_talk_r"> <img class='imggg2' src='<%=m.user.fb_image%>'>
+                                                    <span><%= m.user.fb_name %> :</span>
                                                     <span><%= m.subject %></span>
                                                 </td>
                                         </tr>
@@ -78,6 +79,7 @@ window.live_show_id = <%= @live_show.id %>
                                             <tr>
                                                 <td></td>
                                                 <td class="live_talk_r"><img class='imggg2' src='<%=m.user.fb_image%>'>
+                                                    <span><%= m.user.fb_name %> :</span>
                                                     <span><%= m.subject %></span>
                                                 </td>
                                             </tr>
