@@ -7,7 +7,9 @@ class LiveShowsController < ApplicationController
     @live_show = LiveShow.find(params[:id])
     @user = @live_show.user
     @live_shows = @user.live_shows
+    @question = Question.new
     #@live_show.fb_url = @live_show.fb_url.split('"').second
 
   end
+  
 end

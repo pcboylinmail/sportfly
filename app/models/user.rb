@@ -10,12 +10,14 @@ class User < ApplicationRecord
   has_many :followings
   has_many :followers, :through => :followings
   has_many :live_shows
-  has_many :chats
+  has_many :chats, dependent: :destroy
   has_many :questions
   has_many :askings, :dependent => :destroy
   has_many :wonder_questions, :through => :askings, :source => :question
   has_many :watchings
   has_many :watch_lives, :through => :watchings, :source => :live_show
+  has_many :likes, :dependent => :destroy
+  has_many :liked_questions, :through => :likes ,:source => :question
 
   has_attached_file :picture, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "http://s2.post01.com/uploads/c4/b/119050/14689381446338.jpg"
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/

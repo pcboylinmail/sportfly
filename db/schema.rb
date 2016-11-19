@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161118033436) do
+ActiveRecord::Schema.define(version: 20161119060435) do
 
   create_table "askings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.integer  "user_id"
@@ -40,6 +40,13 @@ ActiveRecord::Schema.define(version: 20161118033436) do
     t.index ["user_id"], name: "index_followings_on_user_id", using: :btree
   end
 
+  create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+    t.integer  "user_id"
+    t.integer  "chat_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "live_shows", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -47,6 +54,15 @@ ActiveRecord::Schema.define(version: 20161118033436) do
     t.integer  "user_id"
     t.string   "fb_url"
     t.index ["user_id"], name: "index_live_shows_on_user_id", using: :btree
+  end
+
+  create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+    t.text     "content",      limit: 65535
+    t.integer  "user_id"
+    t.integer  "live_show_id"
+    t.integer  "likes_count",                default: 0
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
   end
 
   create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
