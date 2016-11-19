@@ -62,7 +62,7 @@ class Api::UsersController < Api::ApiController
     end
   end
   def picture_upload
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
     @user.update(picture: params[:picture])
     if @user.save
       render :json => {
