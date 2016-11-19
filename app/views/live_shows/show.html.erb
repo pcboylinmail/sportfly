@@ -65,46 +65,39 @@ window.live_show_id = <%= @live_show.id %>
                                         <th>問題</th>
                                         <th>讚</th>
                                     </tr>
-                                    <% @live_show.chats.all.order("likes_count DESC").each do |m| %>
+                                    <% @live_show.questions.all.order("likes_count DESC").each do |m| %>
                                         <tr>
                                             <% if m.user_id == current_user.id %>
                                                 <td>
                                                     <%=m.likes_count%>
                                                 </td>
                                                 <td class="live_talk_r"> <img class='imggg2' src='<%=m.user.fb_image%>'>
-                                                    <span><%= m.content %></span>
+                                                    <span><%= m.subject %></span>
                                                 </td>
-                                                <%if current_user.likes.find_by_chat_id(m.id)%>
-                                                    <td>
-                                                        <%= link_to "已按", unlike_live_show_chat_path(@live_show, m), :method => :post ,:class => "glyphicon glyphicon-thumbs-up"%>
-                                                    </td>
-                                                    <%else%>
-                                                        <td>
-                                                            <%= link_to "讚", like_live_show_chat_path(@live_show, m), :method => :post, :class=>"glyphicon glyphicon-thumbs-up"%>
-                                                        </td>
-                                                        <% end %>
+                                                <td><%= link_to "我愛",  like_live_show_question_path(@live_show, m), :method => :post, :class=>"glyphicon glyphicon-thumbs-up"%>
+                                                </td>
                                         </tr>
                                         <%else%>
                                             <tr>
                                                 <td></td>
                                                 <td class="live_talk_r"><img class='imggg2' src='<%=m.user.fb_image%>'>
-                                                    <span><%= m.content %></span>
+                                                    <span><%= m.subject %></span>
                                                 </td>
                                             </tr>
-                                            <% end %>
-                                                <% end %>
+                                        <% end %>
+                                    <% end %>
                                 </table>
                             </div>
                         </div>
+                        <div id="tk" class="tab-pane fade">
+                            <div id="talk_list"></div>
+                        </div>
                         <div class="live_talk_submit">
-                            <%= form_for [@live_show,@chat], :remote => true do |f| %>
+                            <%= form_for [@live_show,@question], :remote => true do |f| %>
                                 <input type="hidden" name="live_show" value="<%= @live_show.id %>">
-                                <%= f.text_field :content, :class=>"cc" %>
+                                <%= f.text_field :subject,:id => "cc", :class=>"cc" %>
                                     <%= f.submit "送出",:onclick => "add()"%>
                                         <% end %>
-                        </div>
-                        <div id="tk" class="tab-pane fade">
-                            aaa
                         </div>
                     </div>
                 </div>

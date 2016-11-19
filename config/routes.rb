@@ -28,14 +28,12 @@ resources :users
   resources :users
   resources :live_shows do
     resources :followings
-    resources :chats do
+    resources :chats
+    resources :questions do
       member do
         post :like
         post :unlike
       end
-    end
-    resources :questions do
-      resources :askings
     end
   end
   mount ActionCable.server => "/cable"
