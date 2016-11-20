@@ -310,31 +310,39 @@ body .navbar_logo img {
 }
 .live_talk_word {
     position: relative;
+    text-align: center;
     overflow: auto;
     color: white;
     width: 400px;
     height: 300px;
     padding-bottom: 30px;
 }
+.live_talk_word th{
+    text-align: center;
+}
 
 .live_talk_l {
     position: relative;
     text-align: left;
-    width: 150px;
+    width: 100px;
     height: auto;
     /*left: 5px;*/
-    word-wrap: break-word;
-    margin-bottom: 50px;
+    word-wrap:break-word;
+    
 }
-
+.talk_w{
+    width: auto;
+    height:100px
+}
 .live_talk_r {
+
     position: relative;
     text-align: left;
-    width: 150px;
+    width: 200px;
     height: auto;
     /*right: -200px;*/
-    word-wrap: break-word;
-    margin-bottom: 50px;
+    
+    
 }
 
 .live_talk_submit {

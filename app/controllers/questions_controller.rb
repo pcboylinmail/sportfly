@@ -37,7 +37,7 @@ class QuestionsController < ApplicationController
         format.html { redirect_to @question, notice: 'question was successfully created.' }
         format.json { render :show, status: :created, location: @question }
         format.js {
-          ActionCable.server.broadcast("public_room", { :question => @question, :user => @user, :asking => @asking } )
+          ActionCable.server.broadcast("public_room", { :question => @question, :user => @user } )
           #render :nothing => true
           render :text => '$("#content").val("");';
         }
