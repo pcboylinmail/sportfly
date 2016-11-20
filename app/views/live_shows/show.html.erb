@@ -73,6 +73,7 @@ window.live_show_id = <%= @live_show.id %>
                                                 <td class="live_talk_r"> <img class='imggg2' src='<%=m.user.fb_image%>'>
                                                     <span><%= m.user.fb_name %> :</span>
                                                     <span><%= m.subject %></span>
+                                                    <%= link_to "想問", live_show_question_askings_path(@live_show, m), :method => :post %>
                                                 </td>
                                         </tr>
                                         <%else%>
