@@ -10,6 +10,7 @@ class QuestionsController < ApplicationController
   # GET /questions/1.json
   def show
     # @love = current_user.loves.find_by_question_id(params[:id])
+    @live_show = LiveShow.find_by(id: params[:id])
   end
 
   # GET /questions/new
@@ -24,11 +25,11 @@ class QuestionsController < ApplicationController
   # POST /questions
   # POST /questions.json
   def create
-    # @live_show = live_show.find(params[:id])
     @user=current_user
     @question = Question.new(question_params)
     @question.user_id = current_user.id
-
+    # @asking = current_user.askings.all
+    @asking = Question.includes(:askings).find_by(id: params[:id])
     # @question = current_user.questions.new(question_params)
     @question.live_show_id = params[:live_show]
     respond_to do |format|
@@ -37,8 +38,10 @@ class QuestionsController < ApplicationController
         format.json { render :show, status: :created, location: @question }
         format.js {
           ActionCable.server.broadcast("public_room", { :question => @question, :user => @user } )
-          render :nothing => true
+          #render :nothing => true
+          render :text => '$("#content").val("");';
         }
+        
       else
         format.html { render :new }
         format.json { render json: @question.errors, status: :unprocessable_entity }

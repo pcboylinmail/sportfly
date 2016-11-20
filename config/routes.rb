@@ -32,7 +32,7 @@ Rails.application.routes.draw do
     resources :followings
     resources :chats
     resources :questions do
-      resources :askings
+      resources :askings, :only => [:create, :destroy]
     end
   end
 

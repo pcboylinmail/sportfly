@@ -24,9 +24,9 @@ $(".live_talk_word").on("mouseenter mouseleave", function(event) {
         }); //滑鼠進入
     }
 });
-window.onload = function() {
-    add();
-}
+// window.onload = function() {
+//     add();
+// }
 window.current_user_id = <%= current_user.id %>
 window.live_show_id = <%= @live_show.id %>
 </script>
@@ -66,25 +66,20 @@ window.live_show_id = <%= @live_show.id %>
                                         <th>問題</th>
                                         <th>讚</th>
                                     </tr>
-                                    <% @live_show.questions.all.order("id DESC").each do |m| %>
+                                    <% @live_show.questions.all.order("users_count DESC").each do |m| %>
                                         <tr>
-                                            <% if m.user_id == current_user.id %>
-                                                <td></td>
-                                                <td class="live_talk_r"> <img class='imggg2' src='<%=m.user.fb_image%>'>
-                                                    <span><%= m.user.fb_name %> :</span>
-                                                    <span><%= m.subject %></span>
+                                            
+                                                <td><%=m.users_count%></td>
+                                                <td class="live_talk_r">
+                                                    
+                                                    <img class='imggg2' src='<%=m.user.fb_image%>'>
+                                                    <span><%= m.user.fb_name %>:</span><%= m.subject %>
+                                                </td>
+                                                <td>
                                                     <%= link_to "想問", live_show_question_askings_path(@live_show, m), :method => :post %>
                                                 </td>
                                         </tr>
-                                        <%else%>
-                                            <tr>
-                                                <td></td>
-                                                <td class="live_talk_r"><img class='imggg2' src='<%=m.user.fb_image%>'>
-                                                    <span><%= m.user.fb_name %> :</span>
-                                                    <span><%= m.subject %></span>
-                                                </td>
-                                            </tr>
-                                        <% end %>
+                                        
                                     <% end %>
                                 </table>
                             </div>
@@ -95,7 +90,7 @@ window.live_show_id = <%= @live_show.id %>
                         <div class="live_talk_submit">
                             <%= form_for [@live_show,@question], :remote => true do |f| %>
                                 <input type="hidden" name="live_show" value="<%= @live_show.id %>">
-                                <%= f.text_field :subject,:id => "cc", :class=>"cc" %>
+                                <%= f.text_field :subject,:id =>'content' %>
                                     <%= f.submit "送出",:onclick => "add()"%>
                                         <% end %>
                         </div>
