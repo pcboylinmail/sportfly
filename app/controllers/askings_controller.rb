@@ -6,12 +6,9 @@ class AskingsController < ApplicationController
 	  	@asking = current_user.askings.build(:question_id => @question.id)
 	  	@asking.save
 	  	respond_to do |format|
-	      format.html do 
-	        redirect_to live_show_path(@live_show) 
-	      end
-	      format.json do
-	        render :json=> {:message => "ok"}
-	      end
+	      format.html {redirect_to live_show_path(@live_show) }
+	      format.json{render :json=> {:message => "ok"}}
+	      format.js
 	    end
     end
 	  	
@@ -21,13 +18,10 @@ class AskingsController < ApplicationController
 	  	@asking = current_user.askings.find_by_question_id(params[:question_id])
 	  	@asking.destroy
 		respond_to do |format|
-	      format.html do 
-	        redirect_to live_show_path(@live_show) 
-	      end
-	      format.json do
-	        render :json=> {:message => "ok"}
-	    	end
-	    end	
+	      format.html {redirect_to live_show_path(@live_show) }
+	      format.json{render :json=> {:message => "ok"}}
+	      format.js
+	    end
 	end
 	private
 
