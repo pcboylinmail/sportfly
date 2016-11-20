@@ -73,11 +73,15 @@ class User < ApplicationRecord
   end
 
   def return_json
+    user_followings = Following.where(follower_id: self.id)
+    following_users_ids = user_followings.map{|i|i.user_id}
+    following_users = following_users_ids.map{|i|User.find(i)}
     return {
       :user => self,
       :user_live_shows => self.live_shows,
       #:user_followers => self.followers,
       :user_followings => Following.where(follower_id: self.id),
+      :following_users => following_users,
       :user_followers_count => self.followers.count,
       :user_picture => "http://www.sportfly.live"+self.picture.url
     }
