@@ -11,11 +11,12 @@ App.questions = App.cable.subscriptions.create({channel:"QuestionsChannel"} , {
 
         var userImg = data["user"]["fb_image"];
         var userId = data["user"]["id"];
-        var like_count = data["question"]["likes_count"]
+        // var like_count = data["question"]["likes_count"]
         var questionId = data["question"]["id"];
         var content = data["question"]["subject"];
         var askingId = data["asking"]["id"];
-
+        // var c = data["question"]["id"];
+        var userName = data["user"]["fb_name"]
         var container = $("#table");
         var elm = "<tr>";
         // elm += "<td id='count_question_" + questionId + "'>" + "</td>";
@@ -27,6 +28,7 @@ App.questions = App.cable.subscriptions.create({channel:"QuestionsChannel"} , {
         // }
         elm += "<td class='live_talk_r'>";
         elm += "<img class='imggg2' src='" + userImg + "'>";
+        elm += "<span>" + userName + "</span>";
         elm += "<span>" + " :  " + content + "</span>";
 
         elm += "</td>";
@@ -55,6 +57,16 @@ App.questions = App.cable.subscriptions.create({channel:"QuestionsChannel"} , {
             setLike(questionIds, userIds, live_showId);
             
         });
+        // $("#like_" + questionId).click(function(e) {
+        //     e.preventDefault();
+        //     var questionIds = questionId;
+        //     var userIds = userId;
+        //     var live_showId = live_show_id;
+        //     var like_counts = like_count;
+        //     // var question_Id = c;
+        //     setLike(questionIds, userIds, live_showId, like_counts);
+
+        // });
         // $("#unlike_" + questionId).click(function(e) {
         //     e.preventDefault();
         //     var questionIds = questionId;

@@ -20,9 +20,10 @@ class Api::LiveShowsController < Api::ApiController
     #@user = current_user
     #@live_show.user_id = @user.id
     #不確定current_user是否能這樣用
+    @fb_url = params[:fb_url].split('"').second
     @live_show = LiveShow.new(name: params[:name],
                               user_id: current_user.id,
-                              fb_url: params[:fb_url] )
+                              fb_url: @fb_url )
     if @live_show.save
       render :json => {
         :status => 200,

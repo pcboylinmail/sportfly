@@ -78,7 +78,8 @@ class User < ApplicationRecord
       :user_live_shows => self.live_shows,
       #:user_followers => self.followers,
       :user_followings => Following.where(follower_id: self.id),
-      :user_followers_count => self.followers.count
+      :user_followers_count => self.followers.count,
+      :user_picture => "http://www.sportfly.live"+self.picture.url
     }
   end
 end

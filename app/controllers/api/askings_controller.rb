@@ -6,6 +6,7 @@ class Api::AskingsController < Api::ApiController
     @question = @live_show.questions.find(params[:question_id])
     #current_user.wonder_questions << @question
     @asking = Asking.new(:user_id => current_user.id, :question_id => @question.id)
+    #有Question的欄位users_count可以計算，下面可以換掉
     @wonder_count = Asking.where(:question_id => params[:question_id]).count
     if @asking.save
         render :json => {

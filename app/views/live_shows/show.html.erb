@@ -49,7 +49,7 @@ window.live_show_id = <%= @live_show.id %>
                       </div> -->
                     <div class="fb-video" data-width="650" data-height="400" data-show-text="false">
 
-                    
+                     <iframe src="<%= @live_show.fb_url.try(:html_safe) %>" width="650" height="400" frameborder="0"></iframe>
                     </div>
                     <div class="live_talk">
                         <div class="show_navtab">
@@ -71,7 +71,9 @@ window.live_show_id = <%= @live_show.id %>
                                             <% if m.user_id == current_user.id %>
                                                 <td></td>
                                                 <td class="live_talk_r"> <img class='imggg2' src='<%=m.user.fb_image%>'>
+                                                    <span><%= m.user.fb_name %> :</span>
                                                     <span><%= m.subject %></span>
+                                                    <%= link_to "想問", live_show_question_askings_path(@live_show, m), :method => :post %>
                                                 </td>
 
                                                   <%if current_user.askings.find_by_question_id(m.id)%>
@@ -86,6 +88,7 @@ window.live_show_id = <%= @live_show.id %>
                                             <tr>
                                                 <td></td>
                                                 <td class="live_talk_r"><img class='imggg2' src='<%=m.user.fb_image%>'>
+                                                    <span><%= m.user.fb_name %> :</span>
                                                     <span><%= m.subject %></span>
                                                 </td>
                                             </tr>
