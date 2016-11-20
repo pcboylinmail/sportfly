@@ -11,8 +11,8 @@ class LiveShow < ApplicationRecord
     {
       :live_show => self,
       :live_show_user => self.user,
-      :live_show_chats => self.chats,
-      :live_show_questions => self.questions,
+      #:live_show_chats => self.chats,
+      #:live_show_questions => self.questions,
       :live_show_watchers => self.watchers,
       :user_followers_count => self.user.followers.count
     }

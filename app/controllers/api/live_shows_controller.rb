@@ -13,6 +13,8 @@ class Api::LiveShowsController < Api::ApiController
     #@live_shows = @user.live_shows
     render :json => {
       :live_show => @live_show.return_json,
+      :live_show_chats => @live_show.chats.map{|i|i.return_json},
+      :live_show_questions => @live_show.questions.map{|i|i.return_json},
     }
   end
 
