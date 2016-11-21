@@ -68,18 +68,18 @@ window.live_show_id = <%= @live_show.id %>
                                     </tr>
                                     <% @live_show.questions.all.order("users_count DESC").each do |m| %>
                                         <tr>
-                                            
+
                                                 <td><%=m.users_count%></td>
                                                 <td class="live_talk_r">
-                                                    
+
                                                     <img class='imggg2' src='<%=m.user.fb_image%>'>
                                                     <span><%= m.user.fb_name %>:</span><%= m.subject %>
                                                 </td>
                                                 <td>
-                                                    <%= link_to "想問", live_show_question_askings_path(@live_show, m), :method => :post %>
+                                                    <%= link_to "", live_show_question_askings_path(@live_show, m),:class =>"glyphicon glyphicon-plus", :method => :post %>
                                                 </td>
                                         </tr>
-                                        
+
                                     <% end %>
                                 </table>
                             </div>
