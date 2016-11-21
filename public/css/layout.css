@@ -272,7 +272,7 @@ body .navbar_logo img {
 }
 
 
-/*talk*/ 
+/*talk*/
 .show_navtab .nav-tabs > li,
 .show_navtab .nav-pills > li {
     float: none;
@@ -332,7 +332,7 @@ body .navbar_logo img {
     height: auto;
     /*left: 5px;*/
     word-wrap:break-word;
-    
+
 }
 .talk_w{
     width: auto;
@@ -345,8 +345,8 @@ body .navbar_logo img {
     width: 200px;
     height: auto;
     /*right: -200px;*/
-    
-    
+
+
 }
 
 .live_talk_submit {
@@ -357,6 +357,7 @@ body .navbar_logo img {
 #tk{
     position: relative;
 }
-#user_name p{
+.user_name {
+    position: relative;
     margin-top: 15.5px;
 }
