@@ -92,8 +92,10 @@ body .navbar_logo img {
 
 .channel_about {
     position: relative;
+    text-align: center;
+    margin-left: 10px;
     width: 300px;
-    height: 500px;
+    height: 200px;
 }
 
 .channel_about_top {
@@ -113,7 +115,7 @@ body .navbar_logo img {
 .channel_cont {
     position: absolute;
     display: inline-block;
-    vertical-align: right;
+    vertical-align: center;
     left: 150px;
 }
 
@@ -131,9 +133,11 @@ body .navbar_logo img {
 }
 
 .channel_content {
+    position: relative;
     top: 5px;
     padding-left: 20px;
     padding-right: 20px;
+    word-wrap:break-word
 }
 
 
@@ -352,4 +356,7 @@ body .navbar_logo img {
 }
 #tk{
     position: relative;
+}
+#user_name p{
+    margin-top: 15.5px;
 }
