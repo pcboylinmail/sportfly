@@ -61,11 +61,6 @@ window.live_show_id = <%= @live_show.id %>
                         <div id="qa" class="tab-pane fade in active">
                             <div id="live_talk_word" class="live_talk_word">
                                 <table id="live_talk_table" class="table">
-                                    <tr>
-                                        <th>票數</th>
-                                        <th>問題</th>
-                                        <th>讚</th>
-                                    </tr>
                                     <% @live_show.questions.all.order("users_count DESC").each do |m| %>
                                         <tr>
 

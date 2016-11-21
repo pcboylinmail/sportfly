@@ -44,7 +44,7 @@ App.questions = App.cable.subscriptions.create({channel:"QuestionsChannel"} , {
 
             // elm += "<td><button id='unlike_" + questionId + "'>已按讚</button>";
 
-            elm += "<td id=td_like_"+ questionId +"><p id='like_" + questionId + "'>讚</p></td>";
+            elm += "<td id=td_like_"+ questionId +"><p id='like_" + questionId + "' class='glyphicon glyphicon-plus'></p></td>";
 
             elm += "</tr>";
         // elm += "$(#count_question_"+ questionId +").html(userCount);";
@@ -60,7 +60,6 @@ App.questions = App.cable.subscriptions.create({channel:"QuestionsChannel"} , {
 
             console.log(count);
             $("#count_question_" + jqueryDomId).html(count);
-            $("#td_like_" + jqueryDomId).html("已按過");
             // $("#count_question_" + ??).html(3);
         }
 
@@ -101,6 +100,8 @@ function setLike(questionIds, userIds, live_showId, userCounts) {
         dataType: "JSON",
         success: function(data) {
             console.log('set_Like success!!', data);
+            console.log('set_Like success!!', questionIds);
+            $("#td_like_" + questionIds).html("");
         },
         error: function(message) {
             console.log('set_Like error!!', message);   

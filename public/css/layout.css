@@ -357,6 +357,16 @@ body .navbar_logo img {
 #tk{
     position: relative;
 }
-#user_name p{
+.user_name{
     margin-top: 15.5px;
+}
+.glyphicon-plus{
+    width: 15px;
+    height: 15px;
+}
+#channel_item_a{
+    color: white;
+}
+#channel_item_a:hower{
+    color: white;
 }
