@@ -8,6 +8,7 @@ class Api::AskingsController < Api::ApiController
     @asking = Asking.new(:user_id => current_user.id, :question_id => @question.id)
     #有Question的欄位users_count可以計算，下面可以換掉
     @wonder_count = Asking.where(:question_id => params[:question_id]).count
+    @question.reload
     if @asking.save
         render :json => {
           :status => 200,
