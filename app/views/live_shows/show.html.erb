@@ -76,7 +76,7 @@ window.live_show_id = <%= @live_show.id %>
                                                     <span><%= m.user.fb_name %>:</span><%= m.subject %>
                                                 </td>
                                                 <td>
-                                                    <%#= link_to "", live_show_question_askings_path(@live_show, m),:class =>"glyphicon glyphicon-plus", :method => :post %>
+                                                    <%= link_to "", live_show_question_askings_path(@live_show, m),:class =>"glyphicon glyphicon-plus", :method => :post %>
                                                 </td>
                                         </tr>
 
