@@ -10,13 +10,17 @@ class AskingsController < ApplicationController
 	    @question = @live_show.questions.find(params[:question_id])
 	    #current_user.wonder_questions << @question
 	    @asking = Asking.create(:user_id => current_user.id, :question_id => @question.id)
+	    @question.reload
 	    #@wonder_count = Asking.where(:question_id => params[:question_id]).count
 	    #有Question的欄位users_count可以計算
 	  	respond_to do |format|
 	      format.html {redirect_to live_show_path(@live_show) }
-	      format.json{render :json=> {:message => "ok"}}
-	      format.js
-	    end
+	      format.json do 
+			ActionCable.server.broadcast("public_room", { type:"add_like", :question => @question, :asking => @asking})
+	      	render :json=> {:message => "ok"}
+	      end
+	      format.js	      	
+	    end 
     end
 	  	
 	
@@ -26,7 +30,10 @@ class AskingsController < ApplicationController
 	  	@asking.destroy
 		respond_to do |format|
 	      format.html {redirect_to live_show_path(@live_show) }
-	      format.json{render :json=> {:message => "ok"}}
+	      format.json do 
+			ActionCable.server.broadcast("public_room", { type:"add_unlike", :question => @question, :asking => @asking})
+	      	render :json=> {:message => "ok"}
+	      end
 	      format.js
 	    end
 	end

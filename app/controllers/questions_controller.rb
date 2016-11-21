@@ -29,7 +29,7 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
     @question.user_id = current_user.id
     # @asking = current_user.askings.all
-    @asking = Question.includes(:askings).find_by(id: params[:id])
+    #@asking = Question.includes(:askings).find_by(id: params[:id])
     # @question = current_user.questions.new(question_params)
     @question.live_show_id = params[:live_show]
     respond_to do |format|
@@ -37,7 +37,7 @@ class QuestionsController < ApplicationController
         format.html { redirect_to @question, notice: 'question was successfully created.' }
         format.json { render :show, status: :created, location: @question }
         format.js {
-          ActionCable.server.broadcast("public_room", { :question => @question, :user => @user } )
+          ActionCable.server.broadcast("public_room", { :type => "submit_comment", :question => @question, :user => @user } )
           #render :nothing => true
           render :text => '$("#content").val("");';
         }

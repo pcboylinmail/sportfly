@@ -7,47 +7,64 @@ App.questions = App.cable.subscriptions.create({channel:"QuestionsChannel"} , {
     },
     received: function(data) {
         console.log("收到資料: ");
+        console.log("------");
         console.log(data);
+        console.log("------");
+        if(data["type"] === "submit_comment"){
+            var userImg = data["user"]["fb_image"];
+            var userId = data["user"]["id"];
+            var userCount = data["question"]["users_count"];
+            // var like_count = data["question"]["likes_count"]
+            var questionId = data["question"]["id"];
 
-        var userImg = data["user"]["fb_image"];
-        var userId = data["user"]["id"];
-        var userCount = data["question"]["users_count"];
-        // var like_count = data["question"]["likes_count"]
-        var questionId = data["question"]["id"];
+            var content = data["question"]["subject"];
+            // var askingId = data["asking"]["id"];
+            // var c = data["question"]["id"];
+            var userName = data["user"]["fb_name"]
+            var container = $("#table");
+            var elm = "<tr>";
+            // elm += "<td id='count_question_" + questionId + "'>" + "</td>";
+            elm += "<td id='count_question_" + questionId + "'>"+userCount+"</td>";
+            // if (current_user_id == userId) {
+            //     elm += "<td class='live_talk_r'>";
+            // } else {
+            //     elm += "<td class='live_talk_l'>";
+            // }
+            elm += "<td class='live_talk_r'>";
+            elm += "<img class='imggg2' src='" + userImg + "'>";
+            elm += "<span>" + userName + "</span>";
+            elm += "<span>" + " :  " + content + "</span>";
 
-        var content = data["question"]["subject"];
-        // var askingId = data["asking"]["id"];
-        // var c = data["question"]["id"];
-        var userName = data["user"]["fb_name"]
-        var container = $("#table");
-        var elm = "<tr>";
-        // elm += "<td id='count_question_" + questionId + "'>" + "</td>";
-        elm += "<td id='count_question_" + questionId + "'>"+userCount+"</td>";
-        // if (current_user_id == userId) {
-        //     elm += "<td class='live_talk_r'>";
-        // } else {
-        //     elm += "<td class='live_talk_l'>";
-        // }
-        elm += "<td class='live_talk_r'>";
-        elm += "<img class='imggg2' src='" + userImg + "'>";
-        elm += "<span>" + userName + "</span>";
-        elm += "<span>" + " :  " + content + "</span>";
+            elm += "</td>";
+            // if ($("#like_" + questionId).click()) {
+            //     elm += "<td><button id='unlike_" + questionId + "'>已按讚</button></td>";
+            // }else{
+            //     elm += "<td><button id='like_" + questionId + "'>讚</button></td>";
+            // }
 
-        elm += "</td>";
-        // if ($("#like_" + questionId).click()) {
-        //     elm += "<td><button id='unlike_" + questionId + "'>已按讚</button></td>";
-        // }else{
-        //     elm += "<td><button id='like_" + questionId + "'>讚</button></td>";
-        // }
+            // elm += "<td><button id='unlike_" + questionId + "'>已按讚</button>";
 
-        // elm += "<td><button id='unlike_" + questionId + "'>已按讚</button>";
+            elm += "<td id=td_like_"+ questionId +"><p id='like_" + questionId + "'>讚</p></td>";
 
-        elm += "<td><button id='like_" + questionId + "'>讚</button></td>";
+            elm += "</tr>";
+        // elm += "$(#count_question_"+ questionId +").html(userCount);";
+            $("#live_talk_table").append(elm);
+            //submit comment action
+        }else if(data["type"] === "add_like"){
+            // add lik action
+            // var tableHtml = data["table_html"];
+            // $("table").html(tableHtml);
+            var jqueryDomId = data["question"]["id"] //1770
+            var count = data["question"]["users_count"]
+            var askingId = data["asking"]["id"]
 
-        elm += "</tr>";
-        elm += "$(#count_question_"+ questionId +").html(userCount);";
-        $("#live_talk_table").append(elm);
-        console.log('set_Like success!!', userCount);
+            console.log(count);
+            $("#count_question_" + jqueryDomId).html(count);
+            $("#td_like_" + jqueryDomId).html("已按過");
+            // $("#count_question_" + ??).html(3);
+        }
+
+        
         //$("#content").val("");
         
         $("#like_" + questionId).click(function(e) {
@@ -59,16 +76,6 @@ App.questions = App.cable.subscriptions.create({channel:"QuestionsChannel"} , {
             setLike(questionIds, userIds, live_showId, userCounts);
             
         });
-        // $("#like_" + questionId).click(function(e) {
-        //     e.preventDefault();
-        //     var questionIds = questionId;
-        //     var userIds = userId;
-        //     var live_showId = live_show_id;
-        //     var like_counts = like_count;
-        //     // var question_Id = c;
-        //     setLike(questionIds, userIds, live_showId, like_counts);
-
-        // });
         // $("#unlike_" + questionId).click(function(e) {
         //     e.preventDefault();
         //     var questionIds = questionId;
@@ -94,16 +101,9 @@ function setLike(questionIds, userIds, live_showId, userCounts) {
         dataType: "JSON",
         success: function(data) {
             console.log('set_Like success!!', data);
-
-            // $(".like").addClass("select");
-            
-            $("#count_question_" + questionIds).html(userCounts);
-
-
         },
         error: function(message) {
-            console.log('set_Like error!!', message);
-            console.log('userCounts=', userCounts);
+            console.log('set_Like error!!', message);   
         }
     })
 }
