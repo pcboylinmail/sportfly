@@ -175,6 +175,7 @@ body .navbar_logo img {
 
 .live_top_top {
     display: inline-block;
+    text-align: left;
 }
 
 .live_name {
@@ -183,7 +184,6 @@ body .navbar_logo img {
     vertical-align: middle;
     padding-right: 560px;
     padding-bottom: 20px;
-    left: -30px;
 }
 
 .progress {
@@ -342,18 +342,23 @@ body .navbar_logo img {
     width: auto;
     height: 100px
 }
-
 .live_talk_r {
+    width: 250px;
+    text-align: left;
+}
+.live_talk_r p{
     position: relative;
     text-align: left;
-    width: 200px;
+    width: 260px;
     height: auto;
+    word-wrap: break-word;
     /*right: -200px;*/
 }
 
 .live_talk_submit {
     position: relative;
     margin-top: 20px;
+    text-align: center;
     color: black
 }
 

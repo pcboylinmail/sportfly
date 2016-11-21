@@ -33,7 +33,7 @@ App.questions = App.cable.subscriptions.create({channel:"QuestionsChannel"} , {
             elm += "<td class='live_talk_r'>";
             elm += "<img class='imggg2' src='" + userImg + "'>";
             elm += "<span>" + userName + "</span>";
-            elm += "<span>" + " :  " + content + "</span>";
+            elm += "<p>" + " :  " + content + "</p>";
 
             elm += "</td>";
             // if ($("#like_" + questionId).click()) {
@@ -63,9 +63,9 @@ App.questions = App.cable.subscriptions.create({channel:"QuestionsChannel"} , {
             // $("#count_question_" + ??).html(3);
         }
 
-        
+
         //$("#content").val("");
-        
+
         $("#like_" + questionId).click(function(e) {
             e.preventDefault();
             var questionIds = questionId;
@@ -73,7 +73,7 @@ App.questions = App.cable.subscriptions.create({channel:"QuestionsChannel"} , {
             var live_showId = live_show_id;
             var userCounts = userCount;
             setLike(questionIds, userIds, live_showId, userCounts);
-            
+
         });
         // $("#unlike_" + questionId).click(function(e) {
         //     e.preventDefault();
@@ -104,7 +104,7 @@ function setLike(questionIds, userIds, live_showId, userCounts) {
             $("#td_like_" + questionIds).html("");
         },
         error: function(message) {
-            console.log('set_Like error!!', message);   
+            console.log('set_Like error!!', message);
         }
     })
 }

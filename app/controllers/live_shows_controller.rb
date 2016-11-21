@@ -1,6 +1,6 @@
 class LiveShowsController < ApplicationController
   def index
-    @live_shows = LiveShow.includes(:user)
+    @live_shows = LiveShow.order("id DESC").includes(:user)
   end
 
   def show
@@ -9,5 +9,5 @@ class LiveShowsController < ApplicationController
     @live_shows = @user.live_shows
     @question = Question.new
   end
-  
+
 end
