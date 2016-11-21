@@ -137,7 +137,7 @@ body .navbar_logo img {
     top: 5px;
     padding-left: 20px;
     padding-right: 20px;
-    word-wrap:break-word
+    word-wrap: break-word
 }
 
 
@@ -273,6 +273,7 @@ body .navbar_logo img {
 
 
 /*talk*/
+
 .show_navtab .nav-tabs > li,
 .show_navtab .nav-pills > li {
     float: none;
@@ -306,12 +307,14 @@ body .navbar_logo img {
     background-color: transparent !important;
     border-color: #FA6503 !important;
 }
-.imggg2  {
+
+.imggg2 {
     position: relative;
     border-radius: 50%;
     width: 30px;
     height: 30px;
 }
+
 .live_talk_word {
     position: relative;
     text-align: center;
@@ -321,7 +324,8 @@ body .navbar_logo img {
     height: 300px;
     padding-bottom: 30px;
 }
-.live_talk_word th{
+
+.live_talk_word th {
     text-align: center;
 }
 
@@ -331,22 +335,20 @@ body .navbar_logo img {
     width: 100px;
     height: auto;
     /*left: 5px;*/
-    word-wrap:break-word;
-
+    word-wrap: break-word;
 }
-.talk_w{
+
+.talk_w {
     width: auto;
-    height:100px
+    height: 100px
 }
-.live_talk_r {
 
+.live_talk_r {
     position: relative;
     text-align: left;
     width: 200px;
     height: auto;
     /*right: -200px;*/
-
-
 }
 
 .live_talk_submit {
@@ -354,10 +356,25 @@ body .navbar_logo img {
     margin-top: 20px;
     color: black
 }
-#tk{
+
+#tk {
     position: relative;
 }
+
 .user_name {
     position: relative;
     margin-top: 15.5px;
+}
+
+.glyphicon-plus {
+    width: 15px;
+    height: 15px;
+}
+
+#channel_item_a {
+    color: white;
+}
+
+#channel_item_a:hower {
+    color: white;
 }

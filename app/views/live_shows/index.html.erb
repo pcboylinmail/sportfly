@@ -13,7 +13,7 @@
 		    	<!-- <a href="<%#= user_live_show_path(l.user,l) %>"> -->
 		    	<%#= link_to "5566",live_show_path(l) %>
 					<div class="channel_item">
-					<!-- <a href="<% live_show_path(l) %>"> -->
+					<a id="channel_item_a" href="<%= live_show_path(l) %>">
 						<div class="channel_pic">
 							<!-- <img src="http://s2.post01.com/uploads/c4/b/119050/14689381446338.jpg"> -->
 							<%= image_tag l.user.picture.url %>
@@ -34,7 +34,7 @@
 							</div>
 						</div>
 					</div>
-				<!-- </a> -->
+					</a>
 			<% end %>
 				<!-- <div class="channel_item">
 					<div class="channel_pic">
