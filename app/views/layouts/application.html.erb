@@ -58,7 +58,7 @@
 
 
         <% if current_user %>
-          <li><p class="user_name"><%=current_user.fb_name%></p></li>  
+          <li><p class="user_name"><%=current_user.fb_name%></p></li>
           <li><%= link_to('登出', destroy_user_session_path, :method => :delete) %></li>
         <% else %>
           <li><p class="user_name">訪客 您好！！</p></li>
