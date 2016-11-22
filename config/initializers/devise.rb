@@ -19,8 +19,8 @@ Devise.setup do |config|
 
   #facebook login
   fb_config = Rails.application.config_for(:facebook)
-  config.omniauth :facebook, fb_config["app_id"], fb_config["secret"], :scope => 'public_profile,email', :info_fields => 'email,name,gender,link', callback_url: "http://localhost:3000/users/auth/facebook/callback"
-  #config.omniauth :facebook, fb_config["app_id"], fb_config["secret"], :scope => 'public_profile,email', :info_fields => 'email,name,gender,link', callback_url: "http://www.sportfly.live/users/auth/facebook/callback"
+  #config.omniauth :facebook, fb_config["app_id"], fb_config["secret"], :scope => 'public_profile,email', :info_fields => 'email,name,gender,link', callback_url: "http://localhost:3000/users/auth/facebook/callback"
+  config.omniauth :facebook, fb_config["app_id"], fb_config["secret"], :scope => 'public_profile,email', :info_fields => 'email,name,gender,link', callback_url: "http://www.sportfly.live/users/auth/facebook/callback"
   # just for test
 
   # Configure the parent class responsible to send e-mails.

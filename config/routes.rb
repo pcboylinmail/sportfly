@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   #devise_for :users
   # root :to => "live_shows#index"
-  root :to => "homes#index"
+  root :to => "live_shows#index"
   mount ActionCable.server => "/cable"
   resources :homes do
     collection do
