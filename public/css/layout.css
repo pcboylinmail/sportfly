@@ -130,11 +130,14 @@ body .navbar_logo img {
 .channel_name {
     padding-left: 20px;
     padding-right: 20px;
+    font-weight: bolder;
 }
 
 .channel_content {
     position: relative;
     top: 5px;
+    height: 80px;
+    overflow: hidden;
     padding-left: 20px;
     padding-right: 20px;
     word-wrap: break-word
@@ -175,6 +178,7 @@ body .navbar_logo img {
 
 .live_top_top {
     display: inline-block;
+    text-align: left;
 }
 
 .live_name {
@@ -183,7 +187,6 @@ body .navbar_logo img {
     vertical-align: middle;
     padding-right: 560px;
     padding-bottom: 20px;
-    left: -30px;
 }
 
 .progress {
@@ -234,6 +237,7 @@ body .navbar_logo img {
 .live_contant {
     display: inline-block;
     vertical-align: middle;
+    word-wrap: break-word;
     width: 850px;
     height: 170px;
     margin-top: 15px;
@@ -344,16 +348,24 @@ body .navbar_logo img {
 }
 
 .live_talk_r {
+    width: 250px;
+    text-align: left;
+}
+
+.live_talk_r p {
     position: relative;
     text-align: left;
-    width: 200px;
+    padding-left: 35px;
+    width: 260px;
     height: auto;
+    word-wrap: break-word;
     /*right: -200px;*/
 }
 
 .live_talk_submit {
     position: relative;
     margin-top: 20px;
+    text-align: center;
     color: black
 }
 
@@ -367,14 +379,36 @@ body .navbar_logo img {
 }
 
 .glyphicon-plus {
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
+    color: #FD9426;
+    padding-top: 7px;
+    margin-right: 5px;
+    font-size: 30px;
 }
 
-#channel_item_a {
-    color: white;
+.glyphicon-plus:hover {
+    color: #FA6503;
+    text-decoration: none;
 }
 
-#channel_item_a:hower {
-    color: white;
+.live_shows_bt {
+    width: 250px;
+    height: 30px;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    border: 1px solid #FA6503;
+    margin-top: 10px;
+    border-radius: 900px;
+}
+
+.live_shows_bt p {
+    padding: 3px;
+    padding-right: 2px;
+}
+
+.live_shows_bt:hover {
+    cursor: pointer;
 }

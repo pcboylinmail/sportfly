@@ -1,3 +1,5 @@
+
+
 <div class="index_navtab">
 	<ul class="nav nav-tabs">
 		<li><a data-toggle="tab" href="#home">熱門直播</a></li>
@@ -13,7 +15,7 @@
 		    	<!-- <a href="<%#= user_live_show_path(l.user,l) %>"> -->
 		    	<%#= link_to "5566",live_show_path(l) %>
 					<div class="channel_item">
-					<a id="channel_item_a" href="<%= live_show_path(l) %>">
+					<!-- <a id="channel_item_a" href="<%= live_show_path(l) %>"> -->
 						<div class="channel_pic">
 							<!-- <img src="http://s2.post01.com/uploads/c4/b/119050/14689381446338.jpg"> -->
 							<%= image_tag l.user.picture.url %>
@@ -32,9 +34,11 @@
 								<div class="channel_content"><%= l.user.description %>
 								</div>
 							</div>
+							<div class="live_shows_bt" onclick="location.href='<%= live_show_path(l)%>';">
+								<p>進入直播室</p>
+							</div>
 						</div>
 					</div>
-					</a>
 			<% end %>
 				<!-- <div class="channel_item">
 					<div class="channel_pic">
