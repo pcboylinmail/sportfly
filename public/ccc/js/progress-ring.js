@@ -1,9 +1,8 @@
-;
 (function ($) {
     $.fn.loadingRing = function () {
         var defaultOpt = {
-            trackColor: '#f0f0f0',
-            progressColor: '#6ec84e',
+            trackColor: '#FD9426',
+            progressColor: '#FA6503',
             percent: 0,
             duration: 1500
         }; // 默认选项

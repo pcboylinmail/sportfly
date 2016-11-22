@@ -33,7 +33,7 @@
   height: 40px;
   width: 40px;
   /* 圆环宽高，可自定义 */
-  border: 5px solid transparent;
+  border: 2px solid transparent;
   border-radius: 100%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
