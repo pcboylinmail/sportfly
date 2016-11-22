@@ -17,7 +17,7 @@ class AskingsController < ApplicationController
 	      format.html {redirect_to live_show_path(@live_show) }
 	      format.json do 
 			ActionCable.server.broadcast("public_room", { type:"add_like", :question => @question, :asking => @asking})
-	      	render :json=> {:message => "ok"}
+	      	render :json=> {:question => @question, :asking => @asking}
 	      end
 	      format.js	      	
 	    end 
