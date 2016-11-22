@@ -10,7 +10,8 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag '/css/layout', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag '/css/layout_min', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    '/ccc/css/progress-ring', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <!--[if lt IE 9]>
@@ -58,10 +59,10 @@
 
 
         <% if current_user %>
-          <li><p class="user_name"><%=current_user.fb_name%></p></li>
+          <li><p class="user_name"><%=current_user.fb_name%></p></li> 
           <li><%= link_to('登出', destroy_user_session_path, :method => :delete) %></li>
         <% else %>
-          <li><p class="user_name">訪客 您好！！</p></li>
+          <li><p class="user_name">訪客 您好！！</p></li> 
           <li><%= link_to "登入 Facebook", user_facebook_omniauth_authorize_path %></li>
         <% end %>
 

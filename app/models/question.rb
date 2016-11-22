@@ -3,8 +3,6 @@ class Question < ApplicationRecord
   has_many :askings
   has_many :asked_users,:through => :askings, :source => :user
   has_many :users, :through => :askings
-  # has_many :likes
-  # has_many :liked_users, :through => :likes, :source => :user
   belongs_to :user
   belongs_to :live_show
 
