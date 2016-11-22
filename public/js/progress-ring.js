@@ -2,7 +2,7 @@
     $.fn.loadingRing = function () {
         var defaultOpt = {
             trackColor: '#FD9426',
-            progressColor: '#6ec84e',
+            progressColor: '#FA6503',
             percent: 0,
             duration: 1500
         }; // 默认选项

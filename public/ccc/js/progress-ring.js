@@ -1,4 +1,3 @@
-;
 (function ($) {
     $.fn.loadingRing = function () {
         var defaultOpt = {
