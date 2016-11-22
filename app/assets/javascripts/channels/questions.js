@@ -1,4 +1,4 @@
-App.questions = App.cable.subscriptions.create({ channel: "QuestionsChannel" }, {
+App.questions = App.cable.subscriptions.create({ channel: "QuestionsChannel"}, {
     connected: function() {
         console.log("連上囉!")
     },

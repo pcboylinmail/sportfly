@@ -65,9 +65,8 @@ window.live_show_id = <%= @live_show.id %>
                                 <table id="live_talk_table" class="table">
                                     <% @live_show.questions.all.order("users_count DESC").each do |m| %>
                                         <tr>
-                                            <td>
-                                                <div class="progress-ring" data-percent="<%=m.users_count%>"></div>
-
+                                            <td id="users_count_td_<%=m.id%>">
+                                                <div id="count_question_<%=m.id%>" class="progress-ring" data-percent="<%=m.users_count%>"></div>
                                             </td>
                                                 <!-- <td><%=m.users_count%></td> -->
                                                 <td class="live_talk_r">
@@ -160,9 +159,9 @@ window.live_show_id = <%= @live_show.id %>
 </div>
     <!-- <script src="/ccc/js/jquery-2.1.1.min.js"></script> -->
     <!-- <script src="/ccc/js/progress-ring.js"></script> -->
-    <script>
-    $(".progress-ring").loadingRing();
-    </script>    
+<script>
+$(".progress-ring").loadingRing();
+</script>  
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
  var js, fjs = d.getElementsByTagName(s)[0];
