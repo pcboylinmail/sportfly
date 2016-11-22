@@ -18,12 +18,14 @@ App.questions = App.cable.subscriptions.create({ channel: "QuestionsChannel"}, {
                 // var like_count = data["question"]["likes_count"]
                 var questionId = data["question"]["id"];
 
+
                 var content = data["question"]["subject"];
                 // var askingId = data["asking"]["id"];
                 // var c = data["question"]["id"];
                 var userName = data["user"]["fb_name"]
                 var container = $("#table");
                 var elm = "<tr>";
+
 
                 //elm += "<td id='count_question_" + questionId + "'>"+userCount+"</td>";
                 elm += "<td id='count_question_" + questionId + "'><div class='progress-ring' data-percent='" + userCount + "'></div></td>";
@@ -41,6 +43,7 @@ App.questions = App.cable.subscriptions.create({ channel: "QuestionsChannel"}, {
 
 
                 elm += "</tr>";
+
 
                 $("#live_talk_table").append(elm);
                 //submit comment action
@@ -93,4 +96,7 @@ function setLike(questionIds, userIds, live_showId, userCounts) {
             console.log('set_Like error!!', message);
         }
     })
+
 }
+
+
