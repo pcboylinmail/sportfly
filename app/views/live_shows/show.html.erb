@@ -24,9 +24,9 @@ $(".live_talk_word").on("mouseenter mouseleave", function(event) {
         }); //滑鼠進入
     }
 });
-window.onload = function() {
-    add();
-}
+// window.onload = function() {
+//     add();
+// }
 window.current_user_id = <%= current_user.id %>
 window.live_show_id = <%= @live_show.id %>
 
@@ -74,7 +74,7 @@ window.live_show_id = <%= @live_show.id %>
 
                                                     <img class='imggg2' src='<%=m.user.fb_image%>'>
                                                     <span><%= m.user.fb_name %>:
-                                                    </span><br>    
+                                                    </span><br>
                                                     <p><%= m.subject %></p>
                                                 </td>
                                                 <td class="like_btn_box" data-questionid="<%= m.id %>" data-userid="<%= m.user.try(:id) %>"
@@ -161,7 +161,7 @@ window.live_show_id = <%= @live_show.id %>
 </div>
     <!-- <script src="/ccc/js/jquery-2.1.1.min.js"></script> -->
     <!-- <script src="/ccc/js/progress-ring.js"></script> -->
-<script type="text/javascript" src="/sort/stupidtable.js"></script>
+<!-- <script type="text/javascript" src="/sort/stupidtable.js"></script> -->
 <script type="text/javascript">
     $(".container").on("click", ".like_btn_box", function(e){
         e.preventDefault(); e.stopPropagation();
@@ -174,10 +174,10 @@ window.live_show_id = <%= @live_show.id %>
         setLike(questionId, userId);
     })
 
-</script> 
+</script>
 <script>
 $(".progress-ring").loadingRing();
-</script>  
+</script>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
  var js, fjs = d.getElementsByTagName(s)[0];
