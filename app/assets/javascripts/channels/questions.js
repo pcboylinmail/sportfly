@@ -34,45 +34,44 @@ App.questions = App.cable.subscriptions.create({ channel: "QuestionsChannel"}, {
                 elm += "<img class='imggg2' src='" + userImg + "'>";
                 elm += "<span>" + userName + ":" +"</span><br>";
                 elm += "<p>"+ content + "</p>";
-
                 elm += "</td>";
-
-                elm += "<td id=td_like_" + questionId + "><p id='like_" + questionId + "' class='glyphicon glyphicon-plus'></p></td>";
+                elm += "<td class='like_btn_box'";
+                elm += " data-questionid='" + questionId + "'";
+                elm += " data-userid='" + userId + "'";
+                elm += " id='td_like_" + questionId + "'";
+                elm += " ><p id='like_" + questionId + "' class='glyphicon glyphicon-plus'></p></td>";
                 //elm += "<script src='/ccc/js/progress-ring.js'></script>";
                 elm += "<script> $('.progress-ring').loadingRing(); </script>";
-
-
                 elm += "</tr>";
 
-
                 $("#live_talk_table").append(elm);
+
+                // $("#like_" + questionId).click(function(e) {
+                //     e.preventDefault();
+                //     var questionIds = questionId;
+                //     var userId = userId;
+                //     var live_showId = live_show_id;
+                //     var userCounts = userCount;
+                //     setLike(questionIds, userId, live_showId, userCounts);
+
+                // });
                 //submit comment action
             } else if (data["type"] === "add_like") {
-                var jqueryDomId = data["question"]["id"] //1770
-                var count = data["question"]["users_count"]
-                var askingId = data["asking"]["id"]
-
-                console.log(count);
-                $("#count_question_" + jqueryDomId).html("<div class='progress-ring' data-percent='" + count + "'></div><script> $('.progress-ring').loadingRing(); </script>");
+                var questionId = data["question"]["id"] //1770
+                var count = data["question"]["users_count"];
+                updateLikeCount(questionId, count);
+                // $("#count_question_" + jqueryDomId).html("<div class='progress-ring' data-percent='" + count + "'></div><script> $('.progress-ring').loadingRing(); </script>");
             }
-            $("#like_" + questionId).click(function(e) {
-                e.preventDefault();
-                var questionIds = questionId;
-                var userIds = userId;
-                var live_showId = live_show_id;
-                var userCounts = userCount;
-                setLike(questionIds, userIds, live_showId, userCounts);
 
-            });
             // $("#unlike_" + questionId).click(function(e) {
             //     e.preventDefault();
             //     var questionIds = questionId;
-            //     var userIds = userId;
+            //     var userId = userId;
             //     var live_showId = live_show_id;
             //     var askingIds = askingId;
             //     console.log('askingIds=',askingIds);
             //     //var like_counts = like_count;
-            //     setunLike(questionIds, userIds, live_showId, askingIds);
+            //     setunLike(questionIds, userId, live_showId, askingIds);
             // });
         });
 
@@ -80,23 +79,29 @@ App.questions = App.cable.subscriptions.create({ channel: "QuestionsChannel"}, {
 
 });
 
-function setLike(questionIds, userIds, live_showId, userCounts) {
+function setLike(questionId, userId) {
+    console.log('i_set_like', questionId, userId)
     $.ajax({
         // /live_shows/:live_show_id/questions/:question_id/askings
-        url: "/live_shows/" + live_showId + "/questions/" + questionIds + "/askings",
-        data: { user: { id: userIds } },
+        url: "/live_shows/" + window.live_show_id + "/questions/" + questionId + "/askings",
+        data: { user: { id: userId } },
         method: "post",
         dataType: "JSON",
         success: function(data) {
+            $("#td_like_" + questionId).html("");
             console.log('set_Like success!!', data);
-            console.log('set_Like success!!', questionIds);
-            $("#td_like_" + questionIds).html("");
+            console.log('set_Like success!!', questionId);
+            var count = data["question"]["users_count"]
+            updateLikeCount(questionId, count);
         },
         error: function(message) {
             console.log('set_Like error!!', message);
         }
     })
+}
 
+function updateLikeCount(questionId, count){
+    $("#count_question_" + questionId).html("<div class='progress-ring' data-percent='" + count + "'></div><script> $('.progress-ring').loadingRing(); </script>");
 }
 
 

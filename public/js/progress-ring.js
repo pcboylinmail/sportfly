@@ -1,7 +1,7 @@
 (function ($) {
     $.fn.loadingRing = function () {
         var defaultOpt = {
-            trackColor: '#f0f0f0',
+            trackColor: '#FD9426',
             progressColor: '#6ec84e',
             percent: 0,
             duration: 1500

@@ -60,13 +60,14 @@ window.live_show_id = <%= @live_show.id %>
                                 <li><a data-toggle="tab" href="#qa">聊天室</a></li>
                             </ul>
                         </div>
+
                         <div id="qa" class="tab-pane fade in active">
                             <div id="live_talk_word" class="live_talk_word">
                                 <table id="live_talk_table" class="table">
                                     <% @live_show.questions.all.order("users_count DESC").each do |m| %>
                                         <tr>
-                                            <td id="users_count_td_<%=m.id%>">
-                                                <div id="count_question_<%=m.id%>" class="progress-ring" data-percent="<%=m.users_count%>"></div>
+                                            <td id="count_question_<%=m.id%>">
+                                                <div class="progress-ring" data-percent="<%=m.users_count%>"></div>
                                             </td>
                                                 <!-- <td><%=m.users_count%></td> -->
                                                 <td class="live_talk_r">
@@ -76,8 +77,9 @@ window.live_show_id = <%= @live_show.id %>
                                                     </span><br>    
                                                     <p><%= m.subject %></p>
                                                 </td>
-                                                <td>
-                                                    <%= link_to "", live_show_question_askings_path(@live_show, m),:id =>"like_plus",:class =>"glyphicon glyphicon-plus", :method => :post %>
+                                                <td class="like_btn_box" data-questionid="<%= m.id %>" data-userid="<%= m.user.try(:id) %>"
+                                                 id="td_like_<%= m.id %>">
+                                                    <%= link_to "", live_show_question_askings_path(@live_show, m),:class =>"glyphicon glyphicon-plus like_plus", :method => :post %>
                                                 </td>
                                         </tr>
 
@@ -159,6 +161,20 @@ window.live_show_id = <%= @live_show.id %>
 </div>
     <!-- <script src="/ccc/js/jquery-2.1.1.min.js"></script> -->
     <!-- <script src="/ccc/js/progress-ring.js"></script> -->
+<script type="text/javascript" src="/sort/stupidtable.js"></script>
+<script type="text/javascript">
+    $(".container").on("click", ".like_btn_box", function(e){
+        e.preventDefault(); e.stopPropagation();
+        var questionId = $(this).data("questionid");
+        var userId = $(this).data("userid");
+            //     var questionIds = questionId;
+            //     var userIds = userId;
+            //     var live_showId = live_show_id;
+            //     var askingIds = askingId;
+        setLike(questionId, userId);
+    })
+
+</script> 
 <script>
 $(".progress-ring").loadingRing();
 </script>  
@@ -170,3 +186,5 @@ $(".progress-ring").loadingRing();
  js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.8&appId=636280343220058";
  fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
+
+
